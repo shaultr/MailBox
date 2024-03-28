@@ -1,0 +1,22 @@
+.container {
+    background-color: var(--primary-color);
+    width: 114px;
+    height: 51px;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    padding: 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    font-size: 20px;
+}
+.contant{
+    height: 21px;
+    display: flex;
+    gap: 8px;
+}

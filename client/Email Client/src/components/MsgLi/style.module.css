@@ -1,28 +1,39 @@
 .container {
     display: flex;
-    width: 372px;
-    height: 66px;
-    gap: 6px;
-    border-radius: 7px;
+    width: 636px;
+    height: 65px;
+    gap: 16px;
+    border-radius: 4px;
     background-color: rgba(250, 235, 215, 0.699);
-    padding: 12px;
+    padding: 16px;
+    justify-content: space-around;
+
 }
 
 .main {
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
+    gap: 8px;
+    /* flex-grow: 1; */
     align-items: center;
+    width: 324px;
+    height: 26px;
+    font-size: 12.5px;
 
 }
 
 .title {
     color: var(--title-color);
     font-size: 15.5;
+    width: 85px;
+    height: 19px;
+    font-weight: 600;
 
 }
 
 .text {
+    width: 324px;
+    height: 26px;
     color: var(--text-color);
     font-size: 12.5;
 
@@ -58,7 +69,8 @@
 
 .end {
     display: flex;
-    flex-direction: column;
+    flex-direction: wrap;
+    gap: 5px;
     width: 39px;
     color: var(--text-color);
     justify-content: center;
