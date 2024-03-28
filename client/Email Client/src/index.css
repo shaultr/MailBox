@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+
+a, input, select, button {
+  font: inherit;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+:root{
+  --title-color: #071232;
+  --text-color: #8191A9;
+  --primary-color: #00A389;
+  --gray-bg-color: #a8a8a8;
+}
