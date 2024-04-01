@@ -4,20 +4,27 @@ const userController = require('../DL/controllers/user.contoroller')
 
 //create new email
 async function createNewEmail(emailData) {
+    
+    //create new msg
     let msgDB = await messageController.create(emailData.msg);
-    const newEmail = { subject: emailData.subject, msg: msgDB[0]._id, lastDate: emailData.lastDate }
-    let email = await emailController.create(newEmail)
+
+    const newEmail = { subject: emailData.subject, msg: msgDB._id }
+    let email = await emailController.create(newEmail);
+
     // update recipient user
-    let toUser = await userController.readOne({ email: emailData.msg[0].to[0] }, false);
-    console.log(msgDB[0]);
-    // toUser.emails.push(email._id);
-    // user.save();
+    let toUser = await userController.readOne({ email: emailData.msg.to });
+    toUser.emails.push(email._id);
+    let emailUserTo = toUser.emails.find(item => item._id === email._id);
+    emailUserTo.isRecieved = true;
+    toUser.save();
     
     // update sender user
-    // let fromUser = await userController.readOne({ email: emailData.from });
-    // fromUser.emails.push(email._id);
-    // user.save();
-
+    let fromUser = await userController.readOne({ email: emailData.msg.from });
+    fromUser.emails.push(email._id);
+    let emailUserFrom = fromUser.emails.find(item => item._id === email._id);
+    emailUserFrom.isSent = true;
+    fromUser.save();
+    
     return email.save();
 }
 
