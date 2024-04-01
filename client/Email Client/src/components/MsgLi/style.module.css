@@ -1,42 +1,45 @@
 .container {
     display: flex;
     width: 636px;
-    height: 65px;
     gap: 16px;
     border-radius: 4px;
-    background-color: rgba(250, 235, 215, 0.699);
+    background-color: rgba(244, 246, 248, 1);
     padding: 16px;
-    justify-content: space-around;
 
 }
-
+.container h3{
+    font-weight: 600;
+    font-size: 15.5px;
+}
+.container p{
+    color:var(--text-color);
+}
 .main {
+    line-height: 20px;
     display: flex;
-    flex-wrap: wrap;
     gap: 8px;
-    /* flex-grow: 1; */
-    align-items: center;
-    width: 324px;
-    height: 26px;
+    flex-grow: 1;
     font-size: 12.5px;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title {
     color: var(--title-color);
     font-size: 15.5;
-    width: 85px;
-    height: 19px;
     font-weight: 600;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .text {
-    width: 324px;
-    height: 26px;
     color: var(--text-color);
     font-size: 12.5;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .image {
@@ -46,7 +49,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .circle {
@@ -66,12 +68,15 @@
     display: block;
 
 }
+.backArrow{
+    color: var(--text-color);
+    font-size: 25px;
+}
 
 .end {
     display: flex;
     flex-direction: wrap;
     gap: 5px;
-    width: 39px;
     color: var(--text-color);
     justify-content: center;
     align-items: center;

@@ -4,16 +4,17 @@
     height: 66px;
     gap: 6px;
     border-radius: 7px;
-    background-color: rgba(250, 235, 215, 0.699);
+    background-color: rgba(244, 246, 248, 1);
     padding: 12px;
+}
+
+.container:hover {
+    box-shadow: 0px 5px 5px rgba(75, 74, 74, 0.5);
 }
 
 .main {
     display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
     align-items: center;
-
 }
 
 .title {
@@ -63,4 +64,14 @@
     color: var(--text-color);
     justify-content: center;
     align-items: center;
+}
+
+.favorite {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.unfavorite {
+    color: var(--text-color);
+    font-size: 20px;
 }

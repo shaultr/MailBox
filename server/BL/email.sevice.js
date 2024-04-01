@@ -14,15 +14,14 @@ async function createNewEmail(emailData) {
     // update recipient user
     let toUser = await userController.readOne({ email: emailData.msg.to });
     toUser.emails.push(email._id);
-    let emailUserTo = toUser.emails.find(item => item._id === email._id);
-    emailUserTo.isRecieved = true;
+    toUser.emails[langth-1].isRecieved = true;
+
     toUser.save();
     
     // update sender user
     let fromUser = await userController.readOne({ email: emailData.msg.from });
     fromUser.emails.push(email._id);
-    let emailUserFrom = fromUser.emails.find(item => item._id === email._id);
-    emailUserFrom.isSent = true;
+    fromUser.emails[langth-1].isSent = true;
     fromUser.save();
     
     return email.save();

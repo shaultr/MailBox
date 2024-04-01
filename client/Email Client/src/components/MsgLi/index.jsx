@@ -1,14 +1,21 @@
 import styles from './style.module.css'
+import { useState } from 'react'
+import { BisolidShare } from "react-icons/bi";
+
 export default function MsgLi() {
+  const [isYou, setIsYou] = useState(false);
+
   return (
     <div className={styles.container}>
 
-    <div className={styles.image}>
+{ isYou ?   <div className={styles.image}>
       <div className={styles.circle}>
       <img src='./images/1.webp'  alt=''/>
-
       </div>
-    </div>
+    </div>:
+    <BisolidShare className={styles.backArrow} />
+
+    }
       <div className={styles.main}>
         <h3 className={styles.title}>moshe Koel</h3>
         <p className={styles.text}>hey jhon, do you remember...</p>

@@ -10,6 +10,13 @@
 
 a, input, select, button {
   font: inherit;
+  border: inherit;
+  background-color: inherit;
+
+}
+
+input:focus {
+  outline: none;
 }
 
 a{

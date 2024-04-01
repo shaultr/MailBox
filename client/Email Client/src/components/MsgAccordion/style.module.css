@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 633px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+image {
+    flex-grow: 1;
+}
+
+.header h3 {
+    color: var(--title-color);
+    flex-grow: 1;
+}
+.header P{
+    color: var(--text-color);
+
+}
+.paragraph {
+    font-size: 15.5px;
+    line-height: 25px;
+    padding: 18px;
+    padding-top: 40px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+}
+
+.img {
+    object-fit: cover;
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+}

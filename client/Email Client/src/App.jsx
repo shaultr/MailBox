@@ -4,12 +4,13 @@ import InputSearch from './components/InputSearch';
 import SendBtn from './components/SendBtn';
 import EmailTitle from './components/EmailTitle';
 import MsgLi from './components/MsgLi';
+import MsgAccordion from './components/MsgAccordion';
 
 function App() {
 
   return (
     <>
-      <EmailLi>       
+      <EmailLi>
       </EmailLi>
 
       <NewMsgBtn>
@@ -26,6 +27,9 @@ function App() {
 
       <MsgLi>
       </MsgLi>
+      <MsgAccordion>
+      </MsgAccordion>
+
     </>
   )
 }
