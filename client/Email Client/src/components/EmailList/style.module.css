@@ -1,0 +1,11 @@
+.container{
+    border-left: 2px solid #a8a8a8;
+    border-radius: 6px;
+    padding: 20px;
+}
+.container h1{
+    border-bottom: 2px solid #a8a8a8;
+}
+.list{
+    padding-top: 20px;
+}

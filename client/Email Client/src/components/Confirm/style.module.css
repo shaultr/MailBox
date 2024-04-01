@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    background-color: white;
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    font-weight: 600;
+}
+.container p{
+    font-size: 23px;
+    flex-grow: 1;
+}
+.confirm{
+    background-color: var(--primary-color);
+    width: 114px;
+    height: 51px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+.cancel{
+    background-color: pink;
+    width: 114px;
+    height: 51px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.end{
+    /* flex-grow: 1; */
+    display: flex;
+    justify-content: space-between;
+}

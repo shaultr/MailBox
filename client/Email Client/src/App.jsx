@@ -1,37 +1,15 @@
-import EmailLi from './components/EmailLi';
-import NewMsgBtn from './components/NewMsgBtn';
-import InputSearch from './components/InputSearch';
-import SendBtn from './components/SendBtn';
-import EmailTitle from './components/EmailTitle';
-import MsgLi from './components/MsgLi';
-import MsgAccordion from './components/MsgAccordion';
+import EmailList from './components/EmailList';
+import NavMain from './components/NavMain';
+
 
 function App() {
 
   return (
     <>
-      <EmailLi>
-      </EmailLi>
-
-      <NewMsgBtn>
-      </NewMsgBtn>
-
-      <InputSearch>
-      </InputSearch>
-
-      <SendBtn>
-      </SendBtn>
-
-      <EmailTitle>
-      </EmailTitle>
-
-      <MsgLi>
-      </MsgLi>
-      
-      <MsgAccordion>
-      </MsgAccordion>
-
-      
+      <div className='temp'>
+        <NavMain />
+        <EmailList />
+      </div>
     </>
   )
 }

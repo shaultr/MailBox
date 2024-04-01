@@ -1,0 +1,26 @@
+/* .container {
+} */
+.icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.icon:hover{
+
+    background-color: #00a38823;
+}
+.container:hover {
+    border-right: 3px solid var(--primary-color);
+}
+
+.container svg {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.container:hover svg {
+    fill: var(--primary-color);
+}

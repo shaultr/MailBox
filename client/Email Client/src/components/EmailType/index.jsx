@@ -1,8 +1,13 @@
 import styles from './style.module.css'
-export default function EmailType() {
+export default function EmailType({icon, name}) {
   return (
-    <div >
-      EmailType
+    <div className={styles.container}>
+
+      {icon}
+
+     <div className={styles.name}>
+      {name}
+      </div>
     </div>
   )
 }

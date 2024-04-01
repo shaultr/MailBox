@@ -30,3 +30,7 @@ a{
   --primary-color: #00A389;
   --gray-bg-color: #a8a8a8;
 }
+.temp{
+  width: 600px;
+  display: flex;
+}

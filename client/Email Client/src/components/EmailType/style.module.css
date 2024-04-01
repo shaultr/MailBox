@@ -1,0 +1,23 @@
+.container{
+    width: 280px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+    cursor: pointer;
+}
+.container svg{
+    color: var(--text-color);
+    font-size: 20px;
+}
+.container:hover{
+    color: var(--primary-color);
+}
+.container:hover svg{
+    color: var(--primary-color);
+}
+.name{
+    font-size: 14.5;
+    font-weight: 600;
+}
