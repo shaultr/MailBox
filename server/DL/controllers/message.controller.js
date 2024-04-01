@@ -11,7 +11,6 @@ async function readOne(filter) {
     return await messageModel.findOne({ ...filter, isActive: true })
 }
 async function update(id, data) {
-    // return await messageModel.findOneAndUpdate({_id:id}, data,{new : true})
     return await messageModel.findByIdAndUpdate(id, data, { new: true })
 }
 async function del(id) {

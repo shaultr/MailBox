@@ -23,10 +23,10 @@ const userSchema = new mongoose.Schema({
             type: mongoose.SchemaTypes.ObjectId,
             ref: 'email'
         },
-        isSent: Boolean,
-        isRecieved: Boolean,
-        isFavorite: Boolean,
-        isDeleted: Boolean,
+        isSent: {type:Boolean,default:false},
+        isRecieved: {type:Boolean,default:false},
+        isFavorite: {type:Boolean,default:false},
+        isDeleted: {type:Boolean,default:false},
         isRead: {type:Boolean,default:false},
     }],
 

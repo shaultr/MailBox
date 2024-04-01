@@ -47,6 +47,18 @@ router.get('/sent',auth, async (req, res) => {
 
 
 //create new email
+router.post('/', async (req, res) => {
+    try {
+        let result = await emailService.createNewEmail(req.body)
+        res.send(result)
+    }
+    catch (err) {
+        res.status(400).send(err.msg || err.message || "wrong")
+    }
+
+})
+
+//add message to email
 router.post('/:emailId', async (req, res) => {
     try {
         let result = await emailService.addNewMessageToEmail(req.params.emailId, req.body)
