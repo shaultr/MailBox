@@ -1,11 +1,12 @@
 .container {
     display: flex;
-    width: 372px;
-    height: 66px;
+    /* width: 372px;
+    height: 66px; */
     gap: 6px;
     border-radius: 7px;
     background-color: rgba(244, 246, 248, 1);
     padding: 12px;
+    cursor: pointer;
 }
 
 .container:hover {
@@ -14,9 +15,17 @@
 
 .main {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
-
+.main p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .title {
     color: var(--title-color);
     font-size: 15.5;

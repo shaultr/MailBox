@@ -4,10 +4,7 @@ import { IoMdMail } from "react-icons/io";
 export default function NewMsgBtn() {
   return (
     <div className={styles.container}>
-      
-      <div className={styles.icon}>
-        <IoMdMail />
-      </div>
+      <IoMdMail className={styles.icon} />
       <p> New Message  </p>
     </div>
   )

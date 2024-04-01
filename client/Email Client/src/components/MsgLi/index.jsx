@@ -1,6 +1,6 @@
 import styles from './style.module.css'
 import { useState } from 'react'
-import { BisolidShare } from "react-icons/bi";
+import { BiSolidShare } from "react-icons/bi";
 
 export default function MsgLi() {
   const [isYou, setIsYou] = useState(false);
@@ -13,7 +13,7 @@ export default function MsgLi() {
       <img src='./images/1.webp'  alt=''/>
       </div>
     </div>:
-    <BisolidShare className={styles.backArrow} />
+    <BiSolidShare className={styles.backArrow} />
 
     }
       <div className={styles.main}>

@@ -21,7 +21,7 @@ export default function EmailLi() {
       </div>
       <div className={styles.main}>
         <h3 className={styles.title}>moshe Koel</h3>
-        <p className={styles.text}>hey jhon, do you remember...</p>
+        <p className={styles.text}>hey Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ab vero, aspernatur mollitia corrupti quas dignissimos reprehenderit provident natus dolores cupiditate temporibus molestias quod id libero officia rem ullam magnam? jhon, do you remember...</p>
       </div>
       <div className={styles.end}>
         <p>11:34</p>

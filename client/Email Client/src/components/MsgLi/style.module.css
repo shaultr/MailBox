@@ -5,7 +5,7 @@
     border-radius: 4px;
     background-color: rgba(244, 246, 248, 1);
     padding: 16px;
-
+    cursor: pointer;
 }
 .container h3{
     font-weight: 600;
