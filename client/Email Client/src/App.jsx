@@ -1,12 +1,29 @@
 import { Route, Routes } from "react-router-dom"
 import MainNav from './layout/MainNav'
+import EmailsNav from './layout/EmailsNav'
+import EmailsList from './layout/EmailsList'
+import EmailPage from './pages/EmailPage'
+
 function App() {
 
-  return (
-    <>
+  return (    <>
       <Routes>
-        {/* <Route path="/" element={<h1>gdgdg</h1>} /> */}
-        <Route path="settings" element={<MainNav/>}>
+        <Route path="/" element={<h1>gdgdg</h1>} />
+
+        <Route element={<MainNav />}>
+          <Route path="settings" element={<></>} />
+          <Route path="timer" element={<></>} />
+          <Route path="emails" element={<EmailsNav />} >
+            <Route path="inbox" element={<EmailsList />}>
+            <Route path="emailId" element={<EmailPage />}>
+
+            </Route>
+            </Route>
+          </Route>
+          <Route path="tasks" element={<></>} />
+          <Route path="search" element={<></>} />
+          <Route path="statistics" element={<></>} />
+          <Route path="video" element={<></>} />
 
         </Route>
       </Routes>

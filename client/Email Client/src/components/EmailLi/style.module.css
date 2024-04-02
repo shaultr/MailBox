@@ -1,7 +1,5 @@
 .container {
     display: flex;
-    /* width: 372px;
-    height: 66px; */
     gap: 6px;
     border-radius: 7px;
     background-color: rgba(244, 246, 248, 1);
@@ -45,7 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
 }
 
 .circle {
@@ -83,4 +81,7 @@
 .unfavorite {
     color: var(--text-color);
     font-size: 20px;
+}
+.active > div{
+    background-color: rgba(255, 255, 255, 1);
 }

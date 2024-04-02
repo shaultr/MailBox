@@ -21,3 +21,10 @@
     font-size: 14.5;
     font-weight: 600;
 }
+.active{
+    color: var(--primary-color);
+}
+
+.active div svg{
+    color: var(--primary-color);
+}

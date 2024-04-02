@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    width: 636px;
     gap: 16px;
     border-radius: 4px;
     background-color: rgba(244, 246, 248, 1);
