@@ -1,15 +1,15 @@
-import EmailList from './components/EmailList';
-import NavMain from './components/NavMain';
-
-
+import { Route, Routes } from "react-router-dom"
+import MainNav from './layout/MainNav'
 function App() {
 
   return (
     <>
-      <div className='temp'>
-        <NavMain />
-        <EmailList />
-      </div>
+      <Routes>
+        {/* <Route path="/" element={<h1>gdgdg</h1>} /> */}
+        <Route path="settings" element={<MainNav/>}>
+
+        </Route>
+      </Routes>
     </>
   )
 }

@@ -1,6 +1,19 @@
-/* .container {
-} */
-.icon {
+.container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.container:hover {
+    border-right: 3px solid var(--primary-color);
+}
+
+.container:hover .icon{
+    background-color: #00a38823;
     width: 60px;
     height: 60px;
     display: flex;
@@ -8,14 +21,6 @@
     align-items: center;
     border-radius: 10px;
 }
-.icon:hover{
-
-    background-color: #00a38823;
-}
-.container:hover {
-    border-right: 3px solid var(--primary-color);
-}
-
 .container svg {
     color: var(--text-color);
     font-size: 20px;

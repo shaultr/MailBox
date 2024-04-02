@@ -7,7 +7,7 @@ import { TiStarFullOutline } from "react-icons/ti";
 import { BsPencilFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 
-export default function EmailList() {
+export default function NavLi() {
   const icons = [
     { icon: <FaInbox />, name: 'Inbox' },
     { icon: <RiSendPlaneFill />, name: 'Sent Emails' },
