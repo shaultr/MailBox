@@ -1,11 +1,11 @@
-const emailModel = require('../models/email.model')
+const emailModel = require('../models/chat.model')
 
 
 async function create(data) {
     return await emailModel.create(data)
 }
 async function read(filter,isPopulate) {
-    return await emailModel.find(filter).populate(isPopulate ? 'msg' :'')
+    return await emailModel.find(filter)
 }
 async function readOne(filter) {
     return await emailModel.findOne(filter)

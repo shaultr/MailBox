@@ -1,15 +1,11 @@
-const emailController = require('../DL/controllers/email.controller')
-const messageController = require('../DL/controllers/message.controller')
+const chatController = require('../DL/controllers/chat.controller')
 const userController = require('../DL/controllers/user.contoroller')
 
 //create new email
 async function createNewEmail(emailData) {
-    
-    //create new msg
-    let msgDB = await messageController.create(emailData.msg);
 
     const newEmail = { subject: emailData.subject, msg: msgDB._id }
-    let email = await emailController.create(newEmail);
+    let email = await chatController.create(newEmail);
 
     // update recipient user
     let toUser = await userController.readOne({ email: emailData.msg.to });
@@ -29,10 +25,8 @@ async function createNewEmail(emailData) {
 
 
 //Add new message
-async function addNewMessageToEmail(emailId, msg) {
-    let msgDB = await messageController.create(msg);
-    let email = await emailController.readOne({ _id: emailId })
-    email.msg.push(msgDB._id)
+async function addNewMessageToEmail(emailId) {
+    let email = await chatController.readOne({ _id: emailId })
     return await email.save()
 
 }

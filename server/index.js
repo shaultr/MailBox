@@ -9,7 +9,7 @@ require('./DL/db').connect();
 app.use(require('cors')());
 app.use(express.json());
 
-app.use('/email', require('./routes/email.router'));
+app.use('/chat', require('./routes/chat.router'));
 
 
 app.listen(8000, ()=>console.log('Server is running'))

@@ -14,8 +14,8 @@ function App() {
           <Route path="settings" element={<></>} />
           <Route path="timer" element={<></>} />
           <Route path="emails" element={<EmailsNav />} >
-            <Route path="inbox" element={<EmailsList />}>
-            <Route path="emailId" element={<EmailPage />}>
+            <Route path=":emailType" element={<EmailsList />}>
+            <Route path=":emailId" element={<EmailPage />}>
 
             </Route>
             </Route>

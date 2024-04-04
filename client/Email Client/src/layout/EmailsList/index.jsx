@@ -2,11 +2,11 @@ import styles from './style.module.css';
 import EmailLi from '../../components/EmailLi'
 import InputSearch from '../../components/InputSearch'
 import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 export default function EmailsList() {
 
-  let emailId = 'emailId';
+  const { emailType } = useParams();
+
   return (
     <>
       <div className={styles.container}>
@@ -14,7 +14,7 @@ export default function EmailsList() {
         <InputSearch />
         </div>
         <div className={styles.list}>
-          <EmailLi />
+          <EmailLi emailType={emailType}/>
         </div>
       </div>
       <Outlet />

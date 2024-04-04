@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-require('./message.model')
-require('./email.model')
+require('./chat.model')
 
 const userSchema = new mongoose.Schema({
     email: {

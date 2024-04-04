@@ -1,9 +1,8 @@
 const userController = require('./controllers/user.contoroller')
 const userModel = require('./models/user.model')
 const messageController = require('./controllers/message.controller')
-const messageModel = require('./models/message.model')
 const emailController = require('./controllers/email.controller')
-const emailModel = require('./models/email.model')
+const emailModel = require('./models/chat.model')
 
 
 
