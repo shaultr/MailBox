@@ -1,0 +1,73 @@
+{
+    "users": [
+        {
+            "email": "user1@example.com",
+            "fullName": "John Doe",
+            "password": "password123",
+            "emails": [
+                {
+                    "emailId": 1,
+                    "isSent": false,
+                    "isRecieved": true,
+                    "isFavorite": false,
+                    "isDeleted": false,
+                    "isRead": false,
+                    "avatar": "👩‍💼",
+                    "fullName": "Jane Smith"
+                },
+                {
+                    "emailId": 2,
+                    "isSent": false,
+                    "isRecieved": true,
+                    "isFavorite": false,
+                    "isDeleted": false,
+                    "isRead": false,
+                    "avatar": "👨‍💼",
+                    "fullName": "John Doe"
+
+
+                }
+            ]
+        },
+        {
+            "email": "user2@example.com",
+            "fullName": "Jane Smith",
+            "password": "password456",
+            "avatar": "👩‍💼",
+            "emails": [
+                {
+                    "emailId": 3,
+                    "isSent": false,
+                    "isRecieved": false,
+                    "isFavorite": false,
+                    "isDeleted": false,
+                    "isRead": false
+                }
+            ]
+        },
+        {
+            "email": "user3@example.com",
+            "fullName": "Alice Johnson",
+            "password": "password789",
+            "avatar": "👩‍💻",
+            "emails": [
+                {
+                    "emailId": 4,
+                    "isSent": false,
+                    "isRecieved": false,
+                    "isFavorite": false,
+                    "isDeleted": false,
+                    "isRead": false
+                }
+            ]
+        }
+    ],
+    "messages": [
+        {
+            "subject": "Test Message 1"
+        },
+        {
+            "subject": "Test Message 2"
+        }
+    ]
+}

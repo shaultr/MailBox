@@ -11,7 +11,7 @@ export default function InputSearch() {
   return (
 
     <div onChange={handelText} className={styles.container}>
-      <input className={styles.container} placeholder='Search' value={text} />
+      <input className={styles.container} placeholder='Search'  />
       {!text && <div className={styles.icon}>
         <FaSearch />
       </div>}

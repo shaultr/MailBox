@@ -31,7 +31,7 @@ export default function EmailsNav() {
           <NewMsgBtn />
           {icons.map((item) => (
 
-              <EmailType icon={item.icon} name={item.name} key={item.name}/>
+              <EmailType icon={item.icon} name={item.name} num={2} key={item.name} />
           ))}
         </div>
       </div>

@@ -6,9 +6,9 @@ const userService = require('../BL/user.service')
 const { auth } = require('../middelewares/auth')
 
 //get inbox emails
-router.get('/inbox',auth, async (req, res) => {
+router.get('/inbox', auth, async (req, res) => {
     const filter = {
-        _id:  req.body.user._id,
+        _id: req.body.user._id,
         emails: {
             $elemMatch: {
                 isRecieved: true
@@ -25,9 +25,9 @@ router.get('/inbox',auth, async (req, res) => {
 
 })
 //get sent emails
-router.get('/sent',auth, async (req, res) => {
+router.get('/sent', auth, async (req, res) => {
     const filter = {
-        _id:  req.body.user._id,
+        _id: req.body.user._id,
         emails: {
             $elemMatch: {
                 isSent: true

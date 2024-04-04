@@ -12,5 +12,9 @@
     height: 100px;
     border-bottom: 2px solid #a8a8a8;
 }
-
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
 
