@@ -11,9 +11,34 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { GoPaperclip } from "react-icons/go";
 import { FaImage } from "react-icons/fa";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export default function EmailPage() {
 
+  const { emailId } = useParams();
+
+  const [details, setDetails] = useState({});
+
+  const getdata = async () => {
+    try {
+      const { data } = await axios.get('/fakeData.json');
+     const selectEmail =  data.users[0].emails.filter((item) => item.emailId === parseInt(emailId));
+     setDetails(selectEmail[0]);
+      return details
+    }
+    catch (err) {
+      
+    }
+  };
+  
+  console.log(details);
+  
+  useEffect(() => {
+    getdata();
+  }, [])
+  
   return (
     <div className={styles.container}>
 
@@ -40,25 +65,25 @@ export default function EmailPage() {
       </div>
 
       <div className={styles.title}>
-        <EmailTitle />
+        <EmailTitle title = {details.title}/>
       </div>
       <div className={styles.list}>
-      <MsgLi />
-      <MsgLi />
-      <MsgLi />
-      <MsgAccordion />
-      <TextArea />
+        <MsgLi />
+        <MsgLi />
+        <MsgLi />
+        <MsgAccordion />
+        <TextArea />
       </div>
       <div className={styles.footer}>
         <div className={styles.icons}>
-        <button>
-        <GoPaperclip />
+          <button>
+            <GoPaperclip />
           </button>
-        <button>
-      <FaImage />
+          <button>
+            <FaImage />
           </button>
         </div>
-      <SendBtn />
+        <SendBtn />
       </div>
     </div>
   );

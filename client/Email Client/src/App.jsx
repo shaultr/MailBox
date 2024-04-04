@@ -6,28 +6,27 @@ import EmailPage from './pages/EmailPage'
 
 function App() {
 
-  return (    <>
-      <Routes>
-        <Route path="/" element={<h1>gdgdg</h1>} />
+  return (<>
+    <Routes>
+      <Route path="/" element={<h1>gdgdg</h1>} />
 
-        <Route element={<MainNav />}>
-          <Route path="settings" element={<></>} />
-          <Route path="timer" element={<></>} />
-          <Route path="emails" element={<EmailsNav />} >
-            <Route path=":emailType" element={<EmailsList />}>
+      <Route element={<MainNav />}>
+        <Route path="settings" element={<></>} />
+        <Route path="timer" element={<></>} />
+        <Route path="emails" element={<EmailsNav />} >
+          <Route path=":emailType" element={<EmailsList />}>
             <Route path=":emailId" element={<EmailPage />}>
-
-            </Route>
             </Route>
           </Route>
-          <Route path="tasks" element={<></>} />
-          <Route path="search" element={<></>} />
-          <Route path="statistics" element={<></>} />
-          <Route path="video" element={<></>} />
-
         </Route>
-      </Routes>
-    </>
+        <Route path="tasks" element={<></>} />
+        <Route path="search" element={<></>} />
+        <Route path="statistics" element={<></>} />
+        <Route path="video" element={<></>} />
+
+      </Route>
+    </Routes>
+  </>
   )
 }
 

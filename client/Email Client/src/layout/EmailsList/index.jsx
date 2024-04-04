@@ -4,6 +4,7 @@ import EmailLi from '../../components/EmailLi'
 import InputSearch from '../../components/InputSearch'
 import { Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -35,8 +36,8 @@ export default function EmailsList() {
         </div>
 
         <div className={styles.list}>
-          {emails.map((item) => (
-            <EmailLi emailType={emailType} emailId={item.emailId} name = {item.fullName} img={item.avatar} key={item} />
+          {emails.map((item, index) => (
+            <EmailLi emailType={emailType} emailId={item.emailId} name = {item.fullName} img={item.avatar} key={index} />
           ))}
 
         </div>

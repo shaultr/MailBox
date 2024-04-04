@@ -1,5 +1,5 @@
 import styles from './style.module.css'
-export default function EmailTitle() {
+export default function EmailTitle({title}) {
   return (
     <div className={styles.container}>
 
@@ -7,7 +7,7 @@ export default function EmailTitle() {
         Tody, 28th March 2024,09:25
       </div>
       <div className={styles.title}>
-      Meeting with new investors
+      {title}
       </div>
     </div>
   )
