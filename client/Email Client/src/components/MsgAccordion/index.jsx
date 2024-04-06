@@ -1,8 +1,12 @@
 import styles from './style.module.css';
-import { IoIosSend } from "react-icons/io";
+import TextArea from '../../components/TextArea';
+import SendBtn from '../../components/SendBtn';
+import { GoPaperclip } from "react-icons/go";
+import { FaImage } from "react-icons/fa";
 
 export default function MsgAccordion() {
   return (
+    <>
     <div className={styles.container}>
 
       <div className={styles.header}>
@@ -17,6 +21,18 @@ export default function MsgAccordion() {
       </div>
 <p className={styles.paragraph}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos dolorem sunt inventore tempora neque fugiat vel alias ducimus quod beatae laboriosam corporis, consectetur quaerat blanditiis accusamus optio autem sed ea!</p>
       </div>
-
+      <TextArea />
+      <div className={styles.footer}>
+        <div className={styles.icons}>
+          <button>
+            <GoPaperclip />
+          </button>
+          <button>
+            <FaImage />
+          </button>
+        </div>
+        <SendBtn />
+      </div>
+    </>
   )
 }
