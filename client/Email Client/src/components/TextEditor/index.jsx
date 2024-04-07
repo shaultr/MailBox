@@ -13,7 +13,7 @@ export default function TextEditor() {
   const colors = ["black", "red", "blue", "green", "yellow", "purple", "orange", "pink", "gray"];
   return (
     <div className={styles.container} >
-      <textarea className={`${styles.textInput} ${classNameTextColor}`} />
+      <textarea className={classNameTextColor} />
       <div className={styles.textTools}>
         <div className={styles.textEditorToolbar}>
           <div className={styles.tool}>
