@@ -8,7 +8,7 @@ function App() {
 
   return (<>
     <Routes>
-      <Route path="/" element={<h1>gdgdg</h1>} />
+      <Route path="/" element={<h1>login. write after /: "setting"</h1>} />
 
       <Route element={<MainNav />}>
         <Route path="settings" element={<></>} />

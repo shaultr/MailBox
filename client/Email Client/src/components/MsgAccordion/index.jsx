@@ -1,10 +1,10 @@
 import styles from './style.module.css';
-import TextArea from '../../components/TextArea';
+import TextEditor from '../../components/TextEditor';
 import SendBtn from '../../components/SendBtn';
 import { GoPaperclip } from "react-icons/go";
 import { FaImage } from "react-icons/fa";
 
-export default function MsgAccordion() {
+export default function MsgAccordion({msg}) {
   return (
     <>
     <div className={styles.container}>
@@ -19,9 +19,9 @@ export default function MsgAccordion() {
         <h3>jessica cohel</h3>
         <p>Today, 01.04.2024 09:25</p>
       </div>
-<p className={styles.paragraph}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos dolorem sunt inventore tempora neque fugiat vel alias ducimus quod beatae laboriosam corporis, consectetur quaerat blanditiis accusamus optio autem sed ea!</p>
+<p className={styles.paragraph}>{msg}</p>
       </div>
-      <TextArea />
+      <TextEditor />
       <div className={styles.footer}>
         <div className={styles.icons}>
           <button>

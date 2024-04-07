@@ -3,7 +3,7 @@ import MsgAccordion from '../MsgAccordion'
 import { useState } from 'react'
 import { BiSolidShare } from "react-icons/bi";
 
-export default function MsgLi() {
+export default function MsgLi({fullName, msg}) {
   const [isYou, setIsYou] = useState(false);
   const [msgOpen, setMsgOpen] = useState(false);
 
@@ -20,8 +20,8 @@ export default function MsgLi() {
     
   }
       <div className={styles.main}>
-        <h3 className={styles.title}>moshe Koel</h3>
-        <p className={styles.text}>hey jhon, do you remember...</p>
+        <h3 className={styles.title}>{fullName}</h3>
+        <p className={styles.text}>{msg}</p>
       </div>
       <div className={styles.end}>
         <p className={styles.date}>28.03.2024</p>
@@ -29,7 +29,7 @@ export default function MsgLi() {
       </div>
       
   </div>
-{ msgOpen && <MsgAccordion />}
+{ msgOpen && <MsgAccordion msg={msg}/>}
   </>
   
   )

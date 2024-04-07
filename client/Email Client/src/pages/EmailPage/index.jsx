@@ -16,25 +16,28 @@ export default function EmailPage() {
   const { emailId } = useParams();
 
   const [details, setDetails] = useState({});
+  const [messages, setMessages] = useState([]);
 
   const getdata = async () => {
     try {
       const { data } = await axios.get('/fakeData.json');
-     const selectEmail =  data.users[0].emails.filter((item) => item.emailId === parseInt(emailId));
-     setDetails(selectEmail[0]);
+      const selectEmail = data.users[0].emails.filter((item) => item.emailId === parseInt(emailId));
+      setDetails(selectEmail);
+      // console.log(selectEmail[0].msg);
+      setMessages(selectEmail[0].msg);
       return details
     }
     catch (err) {
-      
+
     }
   };
-  
-  console.log(details);
-  
+
+  // console.log(messages);
+
   useEffect(() => {
     getdata();
   }, [])
-  
+
   return (
     <div className={styles.container}>
 
@@ -61,13 +64,13 @@ export default function EmailPage() {
       </div>
 
       <div className={styles.title}>
-        <EmailTitle title = {details.title}/>
+        <EmailTitle title={details.title} />
       </div>
       <div className={styles.list}>
-        <MsgLi />
-        <MsgLi />
+        {messages}
+        <MsgLi fullName={details.fullName} msg={details.msg} />
       </div>
-      
+
     </div>
   );
 }

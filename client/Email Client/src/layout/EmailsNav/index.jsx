@@ -12,7 +12,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 export default function EmailsNav() {
   const icons = [
     { icon: <FaInbox />, name: 'Inbox' },
-    { icon: <RiSendPlaneFill />, name: 'SentEmails' },
+    { icon: <RiSendPlaneFill />, name: 'Sent Emails' },
     { icon: <TiStarFullOutline />, name: 'Favourite' },
     { icon: <BsPencilFill />, name: 'Draft' },
     { icon: <MdDelete />, name: 'Deleted' }
