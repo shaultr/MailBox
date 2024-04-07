@@ -6,14 +6,13 @@ import { FaAlignLeft, FaAlignCenter, FaAlignRight, FaAlignJustify } from "react-
 
 export default function TextEditor() {
   const [chooseColor, setChooseColor] = useState(false);
-  const [classNameTextColor, setClassNameTextColor] = useState('k');
+  const [textColor, setTextColor] = useState('black');
   
-  console.log(classNameTextColor);
   
   const colors = ["black", "red", "blue", "green", "yellow", "purple", "orange", "pink", "gray"];
   return (
     <div className={styles.container} >
-      <textarea className={classNameTextColor} />
+      <textarea style={{fontSize: "20px", color: textColor}} />
       <div className={styles.textTools}>
         <div className={styles.textEditorToolbar}>
           <div className={styles.tool}>
@@ -30,7 +29,7 @@ export default function TextEditor() {
               {colors.map((color, index) => (
                 <div
                 key={index}
-                onClick={() => setClassNameTextColor(color)}
+                onClick={() => setTextColor(color)}
                 className={styles.color}
                 style={{ backgroundColor: color }}
                 ></div>
