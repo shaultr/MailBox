@@ -1,5 +1,32 @@
 const chatController = require('../DL/controllers/chat.controller')
 const userController = require('../DL/controllers/user.contoroller')
+const { Flags } = require('../utility')
+
+let funcs = {
+    inbox: [Flags.Inbox],
+    notread: [Flags.NotRead],
+    sent: [Flags.Sent],
+    favorite: [Flags.Favorite],
+    deleted: [Flags.Deleted],
+    draft: [Flags.Draft],
+}
+
+async function getNumNotRead(userId) {
+    let chatsNotread = await userController.readOne({ _id: userId })
+    // let aa = chatsNotread.filter(chat=>chat.isRecieved&&chat.notread);
+    console.log(chatsNotread);
+    // let x = {
+    //     num: chatsNotread.length
+    // };
+
+    // return x
+}
+
+async function getChats(userId, flag) {
+    if (!funcs[flag]) throw ""
+    let { chats } = await userController.readByFlags(userId, funcs[flag], { chats: true, users: true });
+    return chats
+}
 
 //create new email
 async function createNewEmail(emailData) {
@@ -10,16 +37,16 @@ async function createNewEmail(emailData) {
     // update recipient user
     let toUser = await userController.readOne({ email: emailData.msg.to });
     toUser.emails.push(email._id);
-    toUser.emails[langth-1].isRecieved = true;
+    toUser.emails[langth - 1].isRecieved = true;
 
     toUser.save();
-    
+
     // update sender user
     let fromUser = await userController.readOne({ email: emailData.msg.from });
     fromUser.emails.push(email._id);
-    fromUser.emails[langth-1].isSent = true;
+    fromUser.emails[langth - 1].isSent = true;
     fromUser.save();
-    
+
     return email.save();
 }
 
@@ -32,6 +59,8 @@ async function addNewMessageToEmail(emailId) {
 }
 
 module.exports = {
+    getChats,
     addNewMessageToEmail,
-    createNewEmail
+    createNewEmail,
+    getNumNotRead
 }

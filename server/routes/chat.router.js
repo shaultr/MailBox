@@ -5,18 +5,39 @@ const chatService = require('../BL/chat.sevice')
 const userService = require('../BL/user.service')
 const { auth } = require('../middelewares/auth')
 
-//get inbox emails
-router.get('/inbox', auth, async (req, res) => {
-
+router.get('/', auth, async (req, res) => {
     try {
-        const inbox = await userService.getInboxChat(req, true);
-        res.send(inbox)
+        let result = await chatService.getNumNotRead(req.body.user._id)
+        res.send(result)
     }
     catch (err) {
-        res.status(400).send(err.msg || err.message || "wrong")
+        res.status(400).send(err.message)
     }
-
 })
+
+router.get('/:flag', auth, async (req, res) => {
+    try {
+        let result = await chatService.getChats(req.body.user._id, req.params.flag)
+        res.send(result)
+    }
+    catch (err) {
+        res.status(400).send(err.message)
+    }
+})
+
+
+//get inbox emails
+// router.get('/inbox', auth, async (req, res) => {
+
+//     try {
+//         const inbox = await userService.getInboxChat(req, true);
+//         res.send(inbox)
+//     }
+//     catch (err) {
+//         res.status(400).send(err.msg || err.message || "wrong")
+//     }
+
+// })
 
 //get sent emails
 router.get('/sent', auth, async (req, res) => {
