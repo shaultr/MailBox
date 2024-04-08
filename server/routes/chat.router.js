@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express.Router();
 
-const emailService = require('../BL/chat.sevice')
+const chatService = require('../BL/chat.sevice')
 const userService = require('../BL/user.service')
 const { auth } = require('../middelewares/auth')
 

@@ -72,3 +72,15 @@
 .underline{
     text-decoration: underline;
 }
+.textRight{
+    text-align: right;
+}
+.textLeft{
+    text-align: left;
+}
+.textCenter{
+    text-align: center;
+}
+.textJustify{
+    text-align: justify;
+}

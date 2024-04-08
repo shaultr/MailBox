@@ -1,5 +1,6 @@
 import styles from './style.module.css';
 import { IoIosSend } from "react-icons/io";
+<IoIosSend />
 
 export default function SendBtn() {
   return (
@@ -7,7 +8,6 @@ export default function SendBtn() {
     <div className={styles.contant}>
       <p> Send   </p>
       <div className={styles.icon}>
-      <IoIosSend />
       </div>
       </div>
     </div>

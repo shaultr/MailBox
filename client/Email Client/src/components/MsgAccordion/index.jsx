@@ -1,9 +1,9 @@
 import styles from './style.module.css';
 import TextEditor from '../../components/TextEditor';
-import SendBtn from '../../components/SendBtn';
+import Btn from '../../components/Btn';
 import { GoPaperclip } from "react-icons/go";
 import { FaImage } from "react-icons/fa";
-
+import { IoIosSend } from "react-icons/io";
 export default function MsgAccordion({msg}) {
   return (
     <>
@@ -31,7 +31,7 @@ export default function MsgAccordion({msg}) {
             <FaImage />
           </button>
         </div>
-        <SendBtn />
+        <Btn text = {"Send"} icon={<IoIosSend />} />
       </div>
     </>
   )

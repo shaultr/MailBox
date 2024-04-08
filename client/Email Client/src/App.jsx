@@ -3,12 +3,15 @@ import MainNav from './layout/MainNav'
 import EmailsNav from './layout/EmailsNav'
 import EmailsList from './layout/EmailsList'
 import EmailPage from './pages/EmailPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
 
   return (<>
     <Routes>
-      <Route path="/" element={<h1>login. write after /: "setting"</h1>} />
+      <Route path="/" element={<LoginPage />} />
+      <Route path="register" element={<RegisterPage />} />
 
       <Route element={<MainNav />}>
         <Route path="settings" element={<></>} />
