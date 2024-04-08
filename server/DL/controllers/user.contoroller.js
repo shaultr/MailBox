@@ -7,18 +7,18 @@ async function create(data) {
 
 async function read(filter, isPopulate){
     return await userModel.find(filter).populate(isPopulate ? {
-        path: 'emails.email',
+        path: 'chats',
         populate: {
-        path: 'msg',
-        options: { sort: { _id: -1 }, limit: 1 }
+        path: 'chat',
+        // options: { sort: { _id: -1 }, limit: 1 }
         }
         } : '')
     
 }
 
 
-async function readOne(filter, isPopulate){
-    return await userModel.findOne(filter).populate(isPopulate ? 'emails.email' :'')
+async function readOne(filter){
+    return await userModel.findOne(filter)
     
 }
 async function update(id, data){

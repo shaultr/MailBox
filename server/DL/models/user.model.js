@@ -17,10 +17,10 @@ const userSchema = new mongoose.Schema({
     },
     avatar: String,
 
-    emails: [{
-        email: {
+    chats: [{
+        chat: {
             type: mongoose.SchemaTypes.ObjectId,
-            ref: 'email'
+            ref: 'chat'
         },
         isSent: {type:Boolean,default:false},
         isRecieved: {type:Boolean,default:false},

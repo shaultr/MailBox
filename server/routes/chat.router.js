@@ -7,16 +7,9 @@ const { auth } = require('../middelewares/auth')
 
 //get inbox emails
 router.get('/inbox', auth, async (req, res) => {
-    const filter = {
-        _id: req.body.user._id,
-        emails: {
-            $elemMatch: {
-                isRecieved: true
-            }
-        }
-    }
+
     try {
-        const inbox = await userService.getEmailsByFilter(filter, true);
+        const inbox = await userService.getInboxChat(req, true);
         res.send(inbox)
     }
     catch (err) {
@@ -24,6 +17,7 @@ router.get('/inbox', auth, async (req, res) => {
     }
 
 })
+
 //get sent emails
 router.get('/sent', auth, async (req, res) => {
     const filter = {

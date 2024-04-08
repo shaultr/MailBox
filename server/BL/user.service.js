@@ -6,8 +6,18 @@ async function createUser(data) {
 }
 
 //get inbox emails
-async function getEmailsByFilter(filter, isPopulate) {
+async function getInboxChat(req, isPopulate) {
+    const user = await userController.readOne({_id: req.body.user._id})
+    console.log(user);
 
+    const filter = {
+        _id: req.body.user._id,
+        chats: {
+            $elemMatch: {
+                isRecieved: true
+            }
+        }
+    }
     return await userController.read(filter, isPopulate);
 }
 
@@ -22,5 +32,5 @@ async function getEmailsByFilter(filter, isPopulate) {
 
 module.exports = {
     createUser,
-    getEmailsByFilter
+    getInboxChat
 }
