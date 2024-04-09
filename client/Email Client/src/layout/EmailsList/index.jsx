@@ -1,32 +1,38 @@
-// const fakeData = require('../../fakeData');
 import styles from './style.module.css';
 import EmailLi from '../../components/EmailLi'
 import InputSearch from '../../components/InputSearch'
 import { Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { axiosReq } from '../../functions/axiosReq';
 
 export default function EmailsList() {
+  const { emailType } = useParams();
 
   const [emails, setEmails] = useState([])
 
-  const getdata = async () => {
+  const fetchData = async () => {
     try {
-      const { data } = await axios.get('/fakeData.json');
-      const isreciveds = data.users[0].emails.filter((item) => item.isRecieved === true);
-      setEmails(isreciveds);
+      const res = await axiosReq({ method: 'GET', url: `/chat/${emailType}` });
+      return res;
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
-    catch (err) {
+  }
 
-    }
-  };
+  
+
   useEffect(() => {
-    getdata();
-  }, [])
+    fetchData().then(e => {
+      console.log(e[0].chat.lastDate);
+      setEmails(e);
+    }).catch(error => {
+      console.error(error);
+    });
+  }, []);
 
-  const { emailType } = useParams();
+
 
   return (
     <>
@@ -37,7 +43,7 @@ export default function EmailsList() {
 
         <div className={styles.list}>
           {emails.map((item, index) => (
-            <EmailLi emailType={emailType} emailId={item.emailId} name = {item.fullName} img={item.avatar} key={index} />
+            <EmailLi emailId={item._id} members={item.chat.members} date = {item.chat.lastDate} key={index} />
           ))}
 
         </div>

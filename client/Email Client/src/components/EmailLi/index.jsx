@@ -4,7 +4,41 @@ import styles from './style.module.css'
 import { GrMail } from "react-icons/gr";
 import { NavLink } from 'react-router-dom';
 
-export default function EmailLi({ emailId, name, img }) {
+export default function EmailLi({ emailId, members, date }) {
+
+
+
+  function formatCustomDate(inputDate) {
+    // Calculate the time difference in milliseconds
+    const currentTime = new Date();
+    const timeDifference = currentTime - inputDate;
+
+    // Define the threshold for "last 24 hours" (in milliseconds)
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+
+    // Format the date based on the time difference
+    let formattedDate;
+    if (timeDifference >= twentyFourHours) {
+        // Not within the last 24 hours
+        formattedDate = inputDate.toLocaleDateString('en-GB', {
+            year: '2-digit',
+            month: '2-digit',
+            day: '2-digit',
+        });
+    } else {
+        // Within the last 24 hours
+        formattedDate = inputDate.toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+    }
+
+    return formattedDate;
+}
+
+const inputDate = new Date(date);
+const formattedResult = formatCustomDate(inputDate);
+
 
   const [isFavorite, setIsFavorite] = useState(false);
   const [isread, setNumOfMsg] = useState(0);
@@ -12,6 +46,8 @@ export default function EmailLi({ emailId, name, img }) {
   const handelFavorite = () => {
     setIsFavorite(!isFavorite)
   };
+  const numOfOther = members.length-2;
+  // console.log(m);
   return (
     <NavLink to={`${emailId}`}
       className={({ isActive }) =>
@@ -20,16 +56,16 @@ export default function EmailLi({ emailId, name, img }) {
       <div className={styles.container}>
         <div className={styles.image}>
           <div className={styles.circle}>
-            {img}
+            {'img'}
             {/* <img src='/images/1.webp' alt='' /> */}
           </div>
         </div>
         <div className={styles.main}>
-          <h3 className={styles.title}>{name}</h3>
+          <h4 className={styles.title}>{members[members?.length-1].fullName +', '+ members[members?.length-2].fullName + ' +' + ' ' +  numOfOther}</h4>
           <p className={styles.text}>hey Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ab vero, aspernatur mollitia corrupti quas dignissimos reprehenderit provident natus dolores cupiditate temporibus molestias quod id libero officia rem ullam magnam? jhon, do you remember...</p>
         </div>
         <div className={styles.end}>
-          <p>11:34</p>
+          <p>{formattedResult}</p>
           {
             isread ? <GrMail className={styles.envelope} /> :
               <button onClick={handelFavorite}>
