@@ -1,9 +1,7 @@
 import styles from './style.module.css'
 import Badge from '../../components/Badge'
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
 export default function EmailType({ icon, name, num }) {
-  const [number, setNam] = useState(2);
 
   return (
     <NavLink to={`${name.toLowerCase()}`}
@@ -15,7 +13,7 @@ export default function EmailType({ icon, name, num }) {
         <div className={styles.name}>
           {name}
         </div>
-          {number > 0 && <Badge num={num}/>}
+          {num > 0 && <Badge num={num}/>}
       </div>
     </NavLink>
   )

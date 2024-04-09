@@ -8,10 +8,10 @@ const { auth } = require('../middelewares/auth')
 router.get('/', auth, async (req, res) => {
     try {
         let result = await chatService.getNumNotRead(req.body.user._id)
-        res.send(result)
+        res.send({result})
     }
     catch (err) {
-        res.status(400).send(err.message)
+        res.status(400).send(err.message) 
     }
 })
 

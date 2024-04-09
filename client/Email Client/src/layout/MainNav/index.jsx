@@ -29,13 +29,13 @@ export default function EmailList() {
 
           {icons.map((item) => (
 
-              <MainIcon icon={item.icon} title={item.title} key={item.title}/>
+            <MainIcon icon={item.icon} title={item.title} key={item.title} />
           ))}
 
-        </div>
+          </div>
+          <div className={styles.image}>
 
 
-        <div className={styles.image}>
           <div className={styles.circle}>
             <img src='./images/1.webp' alt='' />
           </div>
