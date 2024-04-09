@@ -9,13 +9,14 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { TiStarFullOutline } from "react-icons/ti";
 import { BsPencilFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdOutlineExpandMore } from "react-icons/md";
 import { axiosReq } from '../../functions/axiosReq';
 import { useEffect } from 'react';
 
 export default function EmailsNav() {
+const navigate = useNavigate();
 
   const [numOfNotRead, setNumOfNotRead] = useState(0);
 
@@ -39,10 +40,10 @@ export default function EmailsNav() {
   
 
   const icons = [
-    { icon: <RiSendPlaneFill />, name: 'Sent Emails' },
-    { icon: <TiStarFullOutline />, name: 'Favourite' },
-    { icon: <BsPencilFill />, name: 'Draft' },
-    { icon: <MdDelete />, name: 'Deleted' }
+    { icon: <RiSendPlaneFill />, name: 'Sent Emails', to: 'sent'  },
+    { icon: <TiStarFullOutline />, name: 'Favorite' , to: 'favorite' },
+    { icon: <BsPencilFill />, name: 'Draft', to: 'draft' },
+    { icon: <MdDelete />, name: 'Deleted', to: 'deleted' }
   ];
 
   const labels = [
@@ -59,17 +60,17 @@ export default function EmailsNav() {
     <>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.back}>
+          <div className={styles.back} onClick={()=>navigate(-1)}>
             <MdArrowBackIosNew />
           </div>
           <h1>Mailbox</h1>
         </div>
-        <div className={styles.list}>
+        <div className={styles.list}> 
           <NewMsgBtn />
-          <EmailType icon={<FaInbox />} name={'Inbox'} num={numOfNotRead} />
+          <EmailType icon={<FaInbox />} to={"inbox"} name={'Inbox'} num={numOfNotRead} />
           {icons.map((item) => (
 
-            <EmailType icon={item.icon} name={item.name} key={item.name} />
+            <EmailType icon={item.icon} name={item.name} to={item.to} key={item.name} />
           ))}
           <DropDown icon={<MdOutlineExpandMore />} name={"More"} />
           {/* <div className={styles.labels}>

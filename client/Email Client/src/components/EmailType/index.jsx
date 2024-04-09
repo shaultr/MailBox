@@ -1,10 +1,10 @@
 import styles from './style.module.css'
 import Badge from '../../components/Badge'
 import { NavLink } from 'react-router-dom'
-export default function EmailType({ icon, name, num }) {
+export default function EmailType({ icon, name, num, to }) {
 
   return (
-    <NavLink to={`${name.toLowerCase()}`}
+    <NavLink to={to}
       className={({ isActive }) =>
         isActive ? styles.active : ""
       }>

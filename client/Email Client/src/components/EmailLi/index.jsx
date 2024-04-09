@@ -4,8 +4,7 @@ import styles from './style.module.css'
 import { GrMail } from "react-icons/gr";
 import { NavLink } from 'react-router-dom';
 
-export default function EmailLi({ emailId, members, date }) {
-
+export default function EmailLi({ emailId, content, members, date }) {
 
 
   function formatCustomDate(inputDate) {
@@ -20,7 +19,7 @@ export default function EmailLi({ emailId, members, date }) {
     let formattedDate;
     if (timeDifference >= twentyFourHours) {
         // Not within the last 24 hours
-        formattedDate = inputDate.toLocaleDateString('en-GB', {
+        formattedDate = inputDate.toLocaleDateString('il-GB', {
             year: '2-digit',
             month: '2-digit',
             day: '2-digit',
@@ -39,7 +38,6 @@ export default function EmailLi({ emailId, members, date }) {
 const inputDate = new Date(date);
 const formattedResult = formatCustomDate(inputDate);
 
-
   const [isFavorite, setIsFavorite] = useState(false);
   const [isread, setNumOfMsg] = useState(0);
   const classNameFavorite = (isFavorite ? "favorite" : "unfavorite");
@@ -47,7 +45,6 @@ const formattedResult = formatCustomDate(inputDate);
     setIsFavorite(!isFavorite)
   };
   const numOfOther = members.length-2;
-  // console.log(m);
   return (
     <NavLink to={`${emailId}`}
       className={({ isActive }) =>
@@ -56,13 +53,14 @@ const formattedResult = formatCustomDate(inputDate);
       <div className={styles.container}>
         <div className={styles.image}>
           <div className={styles.circle}>
-            {'img'}
-            {/* <img src='/images/1.webp' alt='' /> */}
+          
+            <img src={`${members[1].avatar}`} alt='' />
+
           </div>
         </div>
         <div className={styles.main}>
           <h4 className={styles.title}>{members[members?.length-1].fullName +', '+ members[members?.length-2].fullName + ' +' + ' ' +  numOfOther}</h4>
-          <p className={styles.text}>hey Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ab vero, aspernatur mollitia corrupti quas dignissimos reprehenderit provident natus dolores cupiditate temporibus molestias quod id libero officia rem ullam magnam? jhon, do you remember...</p>
+          <p className={styles.text}> {content} </p>
         </div>
         <div className={styles.end}>
           <p>{formattedResult}</p>

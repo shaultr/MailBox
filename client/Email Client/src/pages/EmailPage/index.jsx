@@ -6,37 +6,37 @@ import { TiStarFullOutline } from "react-icons/ti";
 import { IoMdPrint } from "react-icons/io";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { HiOutlineDotsVertical } from "react-icons/hi";
-
+import { axiosReq } from '../../functions/axiosReq';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 
 export default function EmailPage() {
 
   const { emailId } = useParams();
 
+  const [title, setTitle] = useState('');
   const [details, setDetails] = useState({});
   const [messages, setMessages] = useState([]);
 
-  const getdata = async () => {
+  const fetchData = async () => {
     try {
-      const { data } = await axios.get('/fakeData.json');
-      const selectEmail = data.users[0].emails.filter((item) => item.emailId === parseInt(emailId));
-      setDetails(selectEmail);
-      // console.log(selectEmail[0].msg);
-      setMessages(selectEmail[0].msg);
-      return details
+      const res = await axiosReq({ method: 'GET', url: `/chat/emailById/${emailId}` });
+      return res;
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
-    catch (err) {
+  }
 
-    }
-  };
-
-  // console.log(messages);
-
-  useEffect(() => {
-    getdata();
-  }, [])
+    useEffect(() => {
+    fetchData()
+    .then(e => {
+       setTitle(e.subject);
+       setMessages(e.msg);
+    }).catch(error => {
+      console.error(error);
+    });
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -64,10 +64,10 @@ export default function EmailPage() {
       </div>
 
       <div className={styles.title}>
-        <EmailTitle title={details.title} />
+        <EmailTitle title={title} />
       </div>
       <div className={styles.list}>
-        {messages}
+        {JSON.stringify(messages)}
         <MsgLi fullName={details.fullName} msg={details.msg} />
       </div>
 

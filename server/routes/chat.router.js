@@ -14,6 +14,15 @@ router.get('/', auth, async (req, res) => {
         res.status(400).send(err.message) 
     }
 })
+router.get('/emailById/:emailId', auth, async (req, res) => {
+    try {
+        let result = await chatService.getChatById(req.body.user._id, req.params.emailId)
+        res.send(result)
+    }
+    catch (err) {
+        res.status(400).send(err.message)
+    }
+})
 
 router.get('/:flag', auth, async (req, res) => {
     try {
@@ -24,6 +33,7 @@ router.get('/:flag', auth, async (req, res) => {
         res.status(400).send(err.message)
     }
 })
+
 
 
 //get inbox emails

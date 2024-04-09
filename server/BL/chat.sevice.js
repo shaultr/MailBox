@@ -25,6 +25,11 @@ async function getChats(userId, flag) {
     let { chats } = await userController.readByFlags(userId, funcs[flag], { chats: true, users: true });
     return chats
 }
+async function getChatById(userId, emailId) {
+    let chat = await chatController.readOne({_id: emailId});
+    console.log(chat);
+    return chat
+}
 
 //create new email
 async function createNewEmail(emailData) {
@@ -60,5 +65,6 @@ module.exports = {
     getChats,
     addNewMessageToEmail,
     createNewEmail,
-    getNumNotRead
+    getNumNotRead,
+    getChatById
 }

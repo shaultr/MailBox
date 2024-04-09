@@ -21,18 +21,14 @@ export default function EmailsList() {
     }
   }
 
-  
-
-  useEffect(() => {
+    useEffect(() => {
     fetchData().then(e => {
-      console.log(e[0].chat.lastDate);
+      console.log(e[0].chat._id);
       setEmails(e);
     }).catch(error => {
       console.error(error);
     });
-  }, []);
-
-
+  }, [emailType]);
 
   return (
     <>
@@ -43,7 +39,7 @@ export default function EmailsList() {
 
         <div className={styles.list}>
           {emails.map((item, index) => (
-            <EmailLi emailId={item._id} members={item.chat.members} date = {item.chat.lastDate} key={index} />
+            <EmailLi emailId={item.chat._id} content = {item.chat.msg[0].content} members={item.chat.members} date = {item.chat.lastDate} key={index} />
           ))}
 
         </div>
