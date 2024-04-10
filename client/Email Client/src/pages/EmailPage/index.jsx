@@ -37,7 +37,7 @@ export default function EmailPage() {
     }).catch(error => {
       console.error(error);
     });
-  }, []);
+  }, [emailId]);
 
   return (
     <div className={styles.container}>

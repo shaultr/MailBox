@@ -28,3 +28,33 @@
     flex-direction: column;
     gap: 5px;
 }
+.label{
+    display: flex;
+    justify-content:flex-start;
+    gap: 8px;
+}
+.titleLabels{
+    display: flex;
+    justify-content: space-between;
+}
+.titleLabels button{
+    color: var(--text-color);
+}
+.titleLabels svg:hover{
+    color: var(--primary-color);
+}
+.iconLabels{
+    display: flex;
+    
+}
+.plus{
+    width: 40px;
+    height: 40px;
+    color: var(--text-color);
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #00a38823;
+}

@@ -3,6 +3,8 @@ import EmailType from '../../components/EmailType';
 import NewMsgBtn from '../../components/NewMsgBtn';
 import DropDown from '../../components/DropDown';
 import LabelBadge from '../../components/LabelBadge';
+import { HiOutlineDotsVertical } from "react-icons/hi";
+
 import { useState } from 'react';
 import { FaInbox } from "react-icons/fa";
 import { RiSendPlaneFill } from "react-icons/ri";
@@ -47,10 +49,10 @@ export default function EmailsNav() {
   ];
 
   const labels = [
-    { text: 'trabajo', color: '#B3BDCC0' },
+    { text: 'trabajo', color: '#B3BDCC' },
     { text: 'work in progress', color: '#FD5E5E' },
     { text: 'personal', color: '#FFD700' },
-    { text: 'urgent', color: ' #FF347' },
+    { text: 'urgent', color: ' #FF6347' },
     { text: 'importent', color: '#FFA07A' },
     { text: 'family', color: '#6495ED' },
     { text: 'social', color: '#FFB6C1' },
@@ -61,7 +63,9 @@ export default function EmailsNav() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.back} onClick={() => navigate(-1)}>
+          <button>
             <MdArrowBackIosNew />
+          </button>
           </div>
           <h1>Mailbox</h1>
         </div>
@@ -74,15 +78,28 @@ export default function EmailsNav() {
           ))}
           <DropDown icon={<MdOutlineExpandMore />} name={"More"} />
           <div className={styles.labels}>
-            <h3>Labeks</h3>
+            <div className={styles.titleLabels}>
+
+              <p>Labeks</p>
+              <div className={styles.iconLabels}>
+
+              <div className={styles.plus}>+</div>
+              <button>
+              <HiOutlineDotsVertical />
+              </button>
+              </div>
+            </div>
             {labels.map((item) => (
-              <LabelBadge
-                color={item.color}
-                whideRec={"80px"}
-                heightRec={"30px"}
-                whideSqu={"26px"}
-                heightSqu={"26px"}
-              />
+              <div className={styles.label}>
+                <LabelBadge
+                  color={item.color}
+                  whideRec={"70px"}
+                  heightRec={"30px"}
+                  whideSqu={"26px"}
+                  heightSqu={"26px"}
+                />
+                <p>{item.text}</p>
+              </div>
             ))}
           </div>
         </div>
