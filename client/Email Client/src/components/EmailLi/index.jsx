@@ -14,7 +14,6 @@ export default function EmailLi({ emailId, content, members, date }) {
 
     // Define the threshold for "last 24 hours" (in milliseconds)
     const twentyFourHours = 24 * 60 * 60 * 1000;
-
     // Format the date based on the time difference
     let formattedDate;
     if (timeDifference >= twentyFourHours) {

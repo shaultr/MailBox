@@ -1,17 +1,12 @@
 .container{
     display: flex;
     align-items: center;
+
 }
 .ractangel{
-    background-color: rgba(253, 94, 94, 1);
-    width: 128px;
-    height: 42px;
     border-radius: 9px;
 }
 .rotated{
-    background-color: rgba(253, 94, 94, 1);
-    width:32.5px;
-    height: 32.5px;
     border-radius: 9px;
     transform: rotate(45deg);
     margin-left: -23.5px;

@@ -16,7 +16,7 @@ import { axiosReq } from '../../functions/axiosReq';
 import { useEffect } from 'react';
 
 export default function EmailsNav() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [numOfNotRead, setNumOfNotRead] = useState(0);
 
@@ -29,7 +29,7 @@ const navigate = useNavigate();
       throw error;
     }
   }
-  
+
   useEffect(() => {
     fetchData().then(num => {
       setNumOfNotRead(num);
@@ -37,11 +37,11 @@ const navigate = useNavigate();
       console.error(error);
     });
   }, []);
-  
+
 
   const icons = [
-    { icon: <RiSendPlaneFill />, name: 'Sent Emails', to: 'sent'  },
-    { icon: <TiStarFullOutline />, name: 'Favorite' , to: 'favorite' },
+    { icon: <RiSendPlaneFill />, name: 'Sent Emails', to: 'sent' },
+    { icon: <TiStarFullOutline />, name: 'Favorite', to: 'favorite' },
     { icon: <BsPencilFill />, name: 'Draft', to: 'draft' },
     { icon: <MdDelete />, name: 'Deleted', to: 'deleted' }
   ];
@@ -60,12 +60,12 @@ const navigate = useNavigate();
     <>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.back} onClick={()=>navigate(-1)}>
+          <div className={styles.back} onClick={() => navigate(-1)}>
             <MdArrowBackIosNew />
           </div>
           <h1>Mailbox</h1>
         </div>
-        <div className={styles.list}> 
+        <div className={styles.list}>
           <NewMsgBtn />
           <EmailType icon={<FaInbox />} to={"inbox"} name={'Inbox'} num={numOfNotRead} />
           {icons.map((item) => (
@@ -73,12 +73,18 @@ const navigate = useNavigate();
             <EmailType icon={item.icon} name={item.name} to={item.to} key={item.name} />
           ))}
           <DropDown icon={<MdOutlineExpandMore />} name={"More"} />
-          {/* <div className={styles.labels}>
+          <div className={styles.labels}>
+            <h3>Labeks</h3>
             {labels.map((item) => (
-
-              <LabelBadge icon={item.icon} name={item.name} num={2} key={item.name} />
+              <LabelBadge
+                color={item.color}
+                whideRec={"80px"}
+                heightRec={"30px"}
+                whideSqu={"26px"}
+                heightSqu={"26px"}
+              />
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
       <Outlet />

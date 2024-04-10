@@ -32,6 +32,7 @@ export default function EmailPage() {
     fetchData()
     .then(e => {
        setTitle(e.subject);
+       console.log(e);
        setMessages(e.msg);
     }).catch(error => {
       console.error(error);
@@ -42,7 +43,14 @@ export default function EmailPage() {
     <div className={styles.container}>
 
       <div className={styles.header}>
-        <LabelBadge />
+        <LabelBadge
+        color={"rgba(253, 94, 94, 1)"}
+        whideRec={"128px"}
+        heightRec={"42px"}
+        whideSqu={"32.5px"}
+        heightSqu={"32.5px"}
+        
+        />
         <div className={styles.icons}>
           <button>
             <TiStarFullOutline />
@@ -67,8 +75,10 @@ export default function EmailPage() {
         <EmailTitle title={title} />
       </div>
       <div className={styles.list}>
-        {JSON.stringify(messages)}
-        <MsgLi fullName={details.fullName} msg={details.msg} />
+      {messages.map((item, index) => (
+                    <MsgLi name={"moshe"} msg={details.msg} />
+
+          ))}
       </div>
 
     </div>
