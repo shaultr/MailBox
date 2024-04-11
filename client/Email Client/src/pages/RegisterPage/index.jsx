@@ -16,27 +16,34 @@ export default function RegisterPage() {
           <p>Email</p>
           <input type='email' className={styles.input} />
 
-          <p>Password</p>
+          <p>First Name</p>
+          <input type='password' className={styles.input} />
+          <p>Last Name</p>
+          <input type='password' className={styles.input} />
+          <p>Our Email Adress</p>
           <input type='password' className={styles.input} />
           <p>Password</p>
           <input type='password' className={styles.input} />
-          <p>Password</p>
-          <input type='password' className={styles.input} />
-          <p>Password</p>
+          <p>Confirm Password</p>
           <input type='password' className={styles.input} />
         </div>
         <div className={styles.end}>
-        <Btn text ={"Register"} />
+          <Btn text={"Register"} />
         </div>
         <div className={styles.register}>
-        <p>Allredy have an account? </p>
-        <NavLink to={'register'}>
-        <div className={styles.link}>Login here</div>
-        </NavLink>
-        <p>Allredy? </p>
-        <NavLink to={'register'}>
-        <div className={styles.link}>Login </div>
-        </NavLink>
+          <div className={styles.terms}>
+          <p>Allredy have an account? </p>
+          <NavLink to={'login'}>
+            <div className={styles.link}>Login here</div>
+          </NavLink>
+          </div>
+          <div className={styles.terms}>
+
+            <p>By registering, you agree to our </p>
+            <NavLink to={'register'}>
+              <div className={styles.link}>Terms of Use </div>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

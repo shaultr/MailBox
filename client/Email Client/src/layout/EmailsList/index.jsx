@@ -23,7 +23,6 @@ export default function EmailsList() {
 
     useEffect(() => {
     fetchData().then(e => {
-      console.log(e[0].chat._id);
       setEmails(e);
     }).catch(error => {
       console.error(error);

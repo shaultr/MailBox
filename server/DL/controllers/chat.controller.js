@@ -8,7 +8,7 @@ async function read(filter,isPopulate) {
     return await chatModel.find(filter)
 }
 async function readOne(filter) {
-    return await chatModel.findOne(filter)
+    return await chatModel.findOne(filter).populate({path: 'msg.from', select: 'fullName avatar' })
 }
 async function update(id, data) {
 

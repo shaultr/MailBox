@@ -1,15 +1,35 @@
 .container {
-    height: 180px;
+    height: 380px;
     width: 100%;
-    border-radius: 10px;
-    border: 1px solid var(--text-color);
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
+.textArea{
+    height: 100%;
+    padding: 20px;
+    border: 0;
+    outline: none;
+    resize: none;
+}
+.textAreaContainer{
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.textTools {
+    width: 100%;
+    height: 30px;
+    border-top: 1px solid var(--text-color);
+    display: flex;
+    justify-content: space-between;
 
-
+}
 .chooseColor {
     position: absolute;
     margin-left: 110px;
@@ -34,13 +54,7 @@
     height: 20px;
     cursor: pointer;
 }
-.textTools {
-    width: 100%;
-    height: 30px;
-    border-top: 1px solid var(--text-color);
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .textEditorToolbar {
     /* border-right: 1px solid var(--text-color); */
@@ -83,4 +97,22 @@
 }
 .textJustify{
     text-align: justify;
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+}
+.icons button{
+    color: var(--text-color);
+}
+
+.icons svg:hover{
+    color: var(--primary-color);
+}
+.footer{
+    padding: 20px;
+display: flex;
+justify-content: space-between;
 }

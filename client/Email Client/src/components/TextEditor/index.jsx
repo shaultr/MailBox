@@ -4,7 +4,10 @@ import { FaBold, FaItalic, FaUnderline } from "react-icons/fa";
 import { IoColorFill } from "react-icons/io5";
 import { FaAlignLeft, FaAlignCenter, FaAlignRight, FaAlignJustify } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
-
+import Btn from '../../components/Btn';
+import { GoPaperclip } from "react-icons/go";
+import { FaImage } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
 export default function TextEditor() {
   const [chooseColor, setChooseColor] = useState(false);
   const [textColor, setTextColor] = useState('black');
@@ -16,6 +19,7 @@ export default function TextEditor() {
   const colors = ["black", "red", "blue", "green", "yellow", "purple", "orange", "pink", "gray"];
   return (
     <div className={styles.container} >
+      <div className={styles.textAreaContainer}>
       <textarea className={
         `${bold && styles.bold}
       ${italic && styles.italic}
@@ -23,9 +27,10 @@ export default function TextEditor() {
       ${textAlign === 'textRight' && styles.textRight}
       ${textAlign === 'textLeft' && styles.textLeft}
       ${textAlign === 'textCenter' && styles.textCenter}
-      ${textAlign === 'textJustify'  && styles.textJustify}`
+      ${textAlign === 'textJustify'  && styles.textJustify}
+      ${styles.textArea}`
     }
-        style={{ fontSize: "20px", color: textColor }} />
+        style={{fontSize: '20px', color: textColor }} placeholder='Enter your text...' />
       <div className={styles.textTools}>
         <div className={styles.textEditorToolbar}>
           <div className={styles.tool} onClick={() => setBold(!bold)}>
@@ -67,6 +72,19 @@ export default function TextEditor() {
             <FaAlignJustify />
           </div>
         </div>
+      </div>
+      </div>
+
+      <div className={styles.footer}>
+        <div className={styles.icons}>
+          <button>
+            <GoPaperclip />
+          </button>
+          <button>
+            <FaImage />
+          </button>
+        </div>
+        <Btn text = {"Send"} icon={<IoIosSend />} />
       </div>
     </div>
   );

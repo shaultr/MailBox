@@ -49,13 +49,12 @@ export default function EmailsNav() {
   ];
 
   const labels = [
-    { text: 'trabajo', color: '#B3BDCC' },
-    { text: 'work in progress', color: '#FD5E5E' },
-    { text: 'personal', color: '#FFD700' },
-    { text: 'urgent', color: ' #FF6347' },
-    { text: 'importent', color: '#FFA07A' },
-    { text: 'family', color: '#6495ED' },
-    { text: 'social', color: '#FFB6C1' },
+    { text: 'Work', color: '#B3BDCC' },
+    { text: 'Work in progress', color: '#FD5E5E' },
+    { text: 'Promissing offers', color: '#FFD700' },
+    { text: 'Work in progress', color: ' #FF6347' },
+    { text: 'In acceptance', color: '#FFA07A' },
+    { text: 'Read Later', color: '#6495ED' },
   ]
 
   return (

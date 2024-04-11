@@ -9,12 +9,14 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { axiosReq } from '../../functions/axiosReq';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import TextEditor from '../../components/TextEditor';
 
 export default function EmailPage() {
 
   const { emailId } = useParams();
 
   const [title, setTitle] = useState('');
+  const [date, setDate] = useState('');
   const [details, setDetails] = useState({});
   const [messages, setMessages] = useState([]);
 
@@ -31,14 +33,15 @@ export default function EmailPage() {
     useEffect(() => {
     fetchData()
     .then(e => {
-       setTitle(e.subject);
-       console.log(e);
-       setMessages(e.msg);
+      setTitle(e.subject);
+      setMessages(e.msg);
+      console.log(e.msg[0].date);
+       setDate(e.lastDate)
     }).catch(error => {
       console.error(error);
     });
   }, [emailId]);
-
+  
   return (
     <div className={styles.container}>
 
@@ -72,14 +75,16 @@ export default function EmailPage() {
       </div>
 
       <div className={styles.title}>
-        <EmailTitle title={title} />
+        <EmailTitle title={title} date = {date}/>
       </div>
       <div className={styles.list}>
+ 
       {messages.map((item, index) => (
-                    <MsgLi name={"moshe"} msg={details.msg} />
+                    <MsgLi name={item.from.fullName} avatar = {item.from.avatar} msg={item.content} date={item.date} key={index}/>
 
           ))}
       </div>
+      <TextEditor />
 
     </div>
   );
