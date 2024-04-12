@@ -10,8 +10,8 @@ async function read(filter) {
 async function readOne(filter, populate={}) {
 
     let data = await userModel.findOne({ ...filter, isActive: true })
-    // if(populate.chats) data=await data.populate('chats.chat')
-    // if(populate.users) data=await data.populate('chats.chat.members')
+    if(populate.chats) data=await data.populate('chats.chat')
+    if(populate.users) data=await data.populate('chats.chat.members')
     
     return data//.toObject()
 }

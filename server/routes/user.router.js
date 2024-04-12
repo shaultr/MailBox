@@ -1,8 +1,7 @@
 const express = require('express'),
     router = express.Router();
-
 const userService = require('../BL/user.service')
-const { auth } = require('../middlewares/auth')
+const { auth } = require('../middelewares/auth')
 
 router.get('/:userId', async (req, res) => {
     try {
@@ -15,14 +14,14 @@ router.get('/:userId', async (req, res) => {
 
 })
 
-router.post('/:userId', async (req, res) => {
+router.post('/register', async (req, res) => {
     try {
-        let result = await emailService.addNewUser(req.params.emailId, req.body)
+        let result = await userService.login(req.body)
         res.send(result)
     }
     catch (err) {
         res.status(400).send(err.msg || err.message || "wrong")
-    }
+    } 
 
 })
 

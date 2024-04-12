@@ -5,11 +5,17 @@ import EmailsList from './layout/EmailsList'
 import EmailPage from './pages/EmailPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import { useState } from "react"
+import DataContext from './context/DataContext'
 
 function App() {
-
+  const [user, setUser] = useState(false)
+  
+  // if (!user) { return (<LoginPage />) }
+  // else{}
   return (<>
     <Routes>
+
       <Route path="/" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
 

@@ -10,6 +10,7 @@ app.use(require('cors')());
 app.use(express.json());
 
 app.use('/chat', require('./routes/chat.router'));
+app.use('/users', require('./routes/user.router'));
 
 // require('./DL/test')
 

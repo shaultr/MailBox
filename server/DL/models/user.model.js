@@ -44,11 +44,12 @@ module.exports = userModel
 async function go() {
     require('dotenv').config()
     require('../db').connect()
-    let chats2 = await userModel.findOne({_id:"660d26b92a155d99889d3942"}).populate('chats.chat')
-    let {chats} = await chats2.populate('chats.chat.msg')//.populate('chats.chat.to');
+    // let chats2 = await userModel.findOne({_id:"660d26b92a155d99889d3942"}).populate('chats.chat')
+    // let x = await chats2.populate('chats.chat.msg')
+    //.populate('chats.chat.to');
     // console.log(chats[0].chat);
-    let res = chats.filter(c=>c.isRecieved)
-    console.log(res);
+    // let res = chats.filter(c=>c.isRecieved)
+    // console.log(res);
 
 }
 // go()
