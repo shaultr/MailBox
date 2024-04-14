@@ -14,14 +14,24 @@ router.get('/:userId', async (req, res) => {
 
 })
 
-router.post('/register', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
         let result = await userService.login(req.body)
         res.send(result)
     }
     catch (err) {
         res.status(400).send(err.msg || err.message || "wrong")
-    } 
+    }
+
+})
+router.post('/register', async (req, res) => {
+    try {
+        let result = await userService.register(req.body)
+        res.send(result)
+    }
+    catch (err) {
+        res.status(400).send(err.msg || err.message || "wrong")
+    }
 
 })
 

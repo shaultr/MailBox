@@ -1,19 +1,24 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import MainNav from './layout/MainNav'
 import EmailsNav from './layout/EmailsNav'
 import EmailsList from './layout/EmailsList'
 import EmailPage from './pages/EmailPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
-import { useState } from "react"
+import { useState, useContext } from "react"
 import DataContext from './context/DataContext'
 
 function App() {
-  const [user, setUser] = useState(false)
-  
-  // if (!user) { return (<LoginPage />) }
-  // else{}
+  const navigate = useNavigate();
+  const [user, setUser] = useState({})
+
+  if (user=={}) {
+    alert('Please enter')
+    navigate('/')
+    // return (<LoginPage />)
+  }
   return (<>
+  <DataContext.Provider value={{user, setUser}}>
     <Routes>
 
       <Route path="/" element={<LoginPage />} />
@@ -35,6 +40,7 @@ function App() {
 
       </Route>
     </Routes>
+</DataContext.Provider>
   </>
   )
 }

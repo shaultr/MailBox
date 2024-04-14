@@ -80,7 +80,7 @@ export default function EmailPage() {
       <div className={styles.list}>
  
       {messages.map((item, index) => (
-                    <MsgLi name={item.from.fullName} avatar = {item.from.avatar} msg={item.content} date={item.date} key={index}/>
+                    <MsgLi id={item.from._id} name={item.from.fullName} avatar = {item.from.avatar} msg={item.content} date={item.date} key={index}/>
 
           ))}
       </div>

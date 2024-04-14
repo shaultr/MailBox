@@ -7,9 +7,9 @@ async function create(data) {
 async function read(filter) {
     return await userModel.find({ ...filter, isActive: true })
 }
-async function readOne(filter, populate={}) {
+async function readOne(filter, select, populate={}) {
 
-    let data = await userModel.findOne({ ...filter, isActive: true })
+    let data = await userModel.findOne({ ...filter, isActive: true }, select)
     if(populate.chats) data=await data.populate('chats.chat')
     if(populate.users) data=await data.populate('chats.chat.members')
     

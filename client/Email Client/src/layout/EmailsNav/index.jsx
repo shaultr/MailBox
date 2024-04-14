@@ -88,8 +88,8 @@ export default function EmailsNav() {
               </button>
               </div>
             </div>
-            {labels.map((item) => (
-              <div className={styles.label}>
+            {labels.map((item, index) => (
+              <div className={styles.label} key={index}>
                 <LabelBadge
                   color={item.color}
                   whideRec={"70px"}

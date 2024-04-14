@@ -7,7 +7,12 @@ import { MdPeople } from "react-icons/md";
 import { VscGraph } from "react-icons/vsc";
 import { IoVideocam } from "react-icons/io5";
 import { Outlet } from 'react-router-dom';
+import { useContext } from 'react';
+import DataContext from '../../context/DataContext'
+
 export default function EmailList() {
+  const { user } = useContext(DataContext)
+
   const icons = [
     { icon: <RxTimer />, title: 'timer' },
     { icon: <FaCalendarCheck />, title: 'tasks' },
@@ -32,12 +37,12 @@ export default function EmailList() {
             <MainIcon icon={item.icon} title={item.title} key={item.title} />
           ))}
 
-          </div>
-          <div className={styles.image}>
+        </div>
+        <div className={styles.image}>
 
 
           <div className={styles.circle}>
-            <img src='./images/1.webp' alt='' />
+          <img src={`${user.avatar}`} alt='' />
           </div>
         </div>
       </div>

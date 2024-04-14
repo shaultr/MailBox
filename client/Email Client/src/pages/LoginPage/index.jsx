@@ -4,19 +4,21 @@ import Btn from '../../components/Btn'
 import { NavLink } from 'react-router-dom';
 import { axiosReq } from '../../functions/axiosReq';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import DataContext from '../../context/DataContext'
 
 export default function LoginPage() {
+  const { user, setUser } = useContext(DataContext)
   const navigate = useNavigate();
 
   const handelSubmit = async (e) => {
     e.preventDefault();
     const df = new FormData(e.target)
     const detailsUser = Object.fromEntries(df);
-
-    console.log(detailsUser);
     try {
-      // const res = await axiosReq({ method: 'POST', url: `/users/`, body: { ...detailsUser, fullName: fullName } });
-      // if (res) navigate('/setting/inbox')
+        const res = await axiosReq({ method: 'POST', url: `/users/login`, body: detailsUser });
+        setUser(res.user)
+      if (res) navigate('/emails/inbox')
     }
     catch (error) {
       console.log(error);
