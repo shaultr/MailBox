@@ -3,7 +3,6 @@ import styles from './style.module.css';
 import { FaBold, FaItalic, FaUnderline } from "react-icons/fa";
 import { IoColorFill } from "react-icons/io5";
 import { FaAlignLeft, FaAlignCenter, FaAlignRight, FaAlignJustify } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
 import Btn from '../../components/Btn';
 import { GoPaperclip } from "react-icons/go";
 import { FaImage } from "react-icons/fa";

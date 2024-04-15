@@ -1,6 +1,7 @@
 import { Route, Routes, useNavigate } from "react-router-dom"
 import MainNav from './layout/MainNav'
 import EmailsNav from './layout/EmailsNav'
+import NewMessage from './pages/NewMessage'
 import EmailsList from './layout/EmailsList'
 import EmailPage from './pages/EmailPage'
 import LoginPage from './pages/LoginPage'
@@ -28,6 +29,7 @@ function App() {
         <Route path="settings" element={<></>} />
         <Route path="timer" element={<></>} />
         <Route path="emails" element={<EmailsNav />} >
+          <Route path="newMessage" element={<NewMessage />} />
           <Route path=":emailType" element={<EmailsList />}>
             <Route path=":emailId" element={<EmailPage />}>
             </Route>

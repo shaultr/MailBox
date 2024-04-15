@@ -1,8 +1,7 @@
 import styles from './style.module.css';
 import EmailLi from '../../components/EmailLi'
 import InputSearch from '../../components/InputSearch'
-import { Outlet } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { axiosReq } from '../../functions/axiosReq';
 

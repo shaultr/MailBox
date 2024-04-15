@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import styles from './style.module.css'
 import { FaSearch } from "react-icons/fa";
 export default function InputSearch() {
@@ -11,6 +10,7 @@ export default function InputSearch() {
   return (
 
     <div onChange={handelText} className={styles.container}>
+ 
       <input className={styles.container} placeholder='Search'  />
       {!text && <div className={styles.icon}>
         <FaSearch />
