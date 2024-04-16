@@ -17,6 +17,7 @@ export default function LoginPage() {
     const detailsUser = Object.fromEntries(df);
     try {
         const res = await axiosReq({ method: 'POST', url: `/users/login`, body: detailsUser });
+        localStorage.token = res.token;
         setUser(res.user)
       if (res) navigate('/emails/inbox')
     }

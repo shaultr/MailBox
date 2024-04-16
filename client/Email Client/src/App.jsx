@@ -8,41 +8,49 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import { useState, useContext } from "react"
 import DataContext from './context/DataContext'
+import { useEffect } from "react"
+import { axiosReq } from './functions/axiosReq';
+
 
 function App() {
   const navigate = useNavigate();
+
   const [user, setUser] = useState({})
 
-  if (user=={}) {
-    alert('Please enter')
-    navigate('/')
-    // return (<LoginPage />)
+  const getUserByToken = async () => {
+    if(!localStorage.token) throw 'no token'
+    const res = await axiosReq({ method: 'GET', url: `/users` });
+    console.log(res);
+    setUser(res)
   }
+  useEffect(() => {
+    getUserByToken()
+  }, [])
   return (<>
-  <DataContext.Provider value={{user, setUser}}>
-    <Routes>
+    <DataContext.Provider value={{ user, setUser }}>
+      <Routes>
 
-      <Route path="/" element={<LoginPage />} />
-      <Route path="register" element={<RegisterPage />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
 
-      <Route element={<MainNav />}>
-        <Route path="settings" element={<></>} />
-        <Route path="timer" element={<></>} />
-        <Route path="emails" element={<EmailsNav />} >
-          <Route path="newMessage" element={<NewMessage />} />
-          <Route path=":emailType" element={<EmailsList />}>
-            <Route path=":emailId" element={<EmailPage />}>
+        <Route element={<MainNav />}>
+          <Route path="settings" element={<></>} />
+          <Route path="timer" element={<></>} />
+          <Route path="emails" element={<EmailsNav />} >
+            <Route path="newMessage" element={<NewMessage />} />
+            <Route path=":emailType" element={<EmailsList />}>
+              <Route path=":emailId" element={<EmailPage />}>
+              </Route>
             </Route>
           </Route>
-        </Route>
-        <Route path="tasks" element={<></>} />
-        <Route path="search" element={<></>} />
-        <Route path="statistics" element={<></>} />
-        <Route path="video" element={<></>} />
+          <Route path="tasks" element={<></>} />
+          <Route path="search" element={<></>} />
+          <Route path="statistics" element={<></>} />
+          <Route path="video" element={<></>} />
 
-      </Route>
-    </Routes>
-</DataContext.Provider>
+        </Route>
+      </Routes>
+    </DataContext.Provider>
   </>
   )
 }

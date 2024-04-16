@@ -10,8 +10,8 @@ import { Outlet } from 'react-router-dom';
 import { useContext } from 'react';
 import DataContext from '../../context/DataContext'
 
-export default function EmailList() {
-  const { user } = useContext(DataContext)
+export default function MainNav() {
+  const { user } = useContext(DataContext);
 
   const icons = [
     { icon: <RxTimer />, title: 'timer' },

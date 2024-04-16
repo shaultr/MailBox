@@ -1,9 +1,13 @@
 const userController = require('../DL/controllers/user.contoroller');
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const TOKEN_SECRET = process.env.TOKEN_SECRET;
 const { createToken } = require('../middelewares/auth')
 const bcrypt = require('bcrypt');
 
 
 async function login(data) {
+
     const user = await userController.readOne({ email: data.email }, '+password');
     if (!user) throw { msg: 'User not found' };
     const correctPassword = bcrypt.compareSync(data.password, user.password);
@@ -22,9 +26,11 @@ async function register(data) {
 }
 
 //get inbox emails
-async function getUser(req, res) {
-    // const user = await userController.readOne();
-
+async function getUser(req) {
+    const token = req.headers.authorization;
+    const correct = jwt.verify(token, TOKEN_SECRET);
+    const user = await userController.readOne(correct._id);
+    return user;
 }
 
 

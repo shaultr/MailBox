@@ -3,9 +3,10 @@ const express = require('express'),
 const userService = require('../BL/user.service')
 const { auth } = require('../middelewares/auth')
 
-router.get('/:userId', async (req, res) => {
+//get user by koken
+router.get('/', auth, async (req, res) => {
     try {
-        let result = await userService.getUserById()
+        let result = await userService.getUser(req)
         res.send(result)
     }
     catch (err) {
