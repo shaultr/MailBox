@@ -26,15 +26,21 @@ async function getChats(userId, flag) {
     return chats
 }
 async function getChatById(userId, emailId) {
-    let chat = await chatController.readOne({_id: emailId});
+    let chat = await chatController.readOne({ _id: emailId });
     console.log(chat);
     return chat
 }
 
 //create new email
 async function createNewEmail(emailData) {
-
-    // const newEmail = { subject: emailData.subject, msg: msgDB._id }
+    const newEmail = {
+        subject: emailData.subject,
+        msg: {
+            from: emailData.from,
+            content: emailData.content
+        },
+        members: emailData.members
+    }
     // let email = await chatController.create(newEmail);
 
     // let toUser = await userController.readOne({ email: emailData.msg.to });

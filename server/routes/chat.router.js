@@ -74,7 +74,7 @@ router.get('/sent', auth, async (req, res) => {
 //create new email
 router.post('/', async (req, res) => {
     try {
-        let result = await emailService.createNewEmail(req.body)
+        let result = await chatService.createNewEmail(req.body)
         res.send(result)
     }
     catch (err) {

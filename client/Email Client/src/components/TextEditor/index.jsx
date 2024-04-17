@@ -7,7 +7,8 @@ import Btn from '../../components/Btn';
 import { GoPaperclip } from "react-icons/go";
 import { FaImage } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
-export default function TextEditor() {
+
+export default function TextEditor({setContant}) {
   const [chooseColor, setChooseColor] = useState(false);
   const [textColor, setTextColor] = useState('black');
   const [bold, setBold] = useState(false);
@@ -19,7 +20,7 @@ export default function TextEditor() {
   return (
     <div className={styles.container} >
       <div className={styles.textAreaContainer}>
-      <textarea className={
+      <textarea onChange={(e)=>{setContant(e.target.value)}} className={
         `${bold && styles.bold}
       ${italic && styles.italic}
       ${underline && styles.underline}
