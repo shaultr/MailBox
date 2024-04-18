@@ -32,43 +32,27 @@ async function getChatById(userId, emailId) {
 }
 
 //create new email
+// async function createNewEmail(emailData) {
+//     let email = await chatController.create(emailData);
+//     emailData.members.forEach(async element => {
+//         await userController.update({ _id: element, $push: { chats: email }  })
+//         return email
+//     });
+
+// } 
+
 async function createNewEmail(emailData) {
-    const newEmail = {
-        subject: emailData.subject,
-        msg: {
-            from: emailData.from,
-            content: emailData.content
-        },
-        members: emailData.members
-    }
-    // let email = await chatController.create(newEmail);
-
-    // let toUser = await userController.readOne({ email: emailData.msg.to });
-    // toUser.emails.push(email._id);
-    // toUser.emails[langth - 1].isRecieved = true;
-
-    // toUser.save();
-
-    // update sender user
-    // let fromUser = await userController.readOne({ email: emailData.msg.from });
-    // fromUser.emails.push(email._id);
-    // fromUser.emails[langth - 1].isSent = true;
-    // fromUser.save();
-
-    // return email.save();
-}
-
-
-//Add new message
-async function addNewMessageToEmail(emailId) {
-    let email = await chatController.readOne({ _id: emailId })
-    return await email.save()
+        let email = await chatController.create(emailData);
+        await Promise.all(emailData.members.map(async element => {
+            await userController.update({ _id: element }, { $push: { chats: email } });
+        }));
+        return email;
 
 }
+
 
 module.exports = {
     getChats,
-    addNewMessageToEmail,
     createNewEmail,
     getNumNotRead,
     getChatById

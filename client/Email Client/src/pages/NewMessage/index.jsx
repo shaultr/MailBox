@@ -29,13 +29,13 @@ export default function NewMessage() {
       members: stringMembers.split(','),
       from: user._id
     }
-    // try {
-    //   const res = await axiosReq({ method: 'POST', url: `/chat`, body: {} });
-    //   if (res) navigate('/emails/inbox')
-    // }
-    // catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const res = await axiosReq({ method: 'POST', url: `/chat`, body: objForm });
+      if (res) navigate('/emails/inbox')
+    }
+    catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -61,7 +61,7 @@ export default function NewMessage() {
             <input type='text' className={styles.input} name={"members"} id={'members'} onChange={handleTextChange} value={membersValue} />
             {stringMembers && <div className={styles.addMembers}>{stringMembers}</div>}
           </div>
-          <button className={styles.add} onClick={() => setStringMembers(membersValue)}>Add</button>
+          <div className={styles.add} onClick={() => setStringMembers(membersValue)}>Add</div>
         </div>
         <div className={styles.editor}>
           <h3>Message</h3>
