@@ -30,7 +30,7 @@ router.post('/register', async (req, res) => {
         let result = await userService.register(req.body)
         res.send(result)
     }
-    catch (err) {
+    catch (err) { 
         res.status(400).send(err.msg || err.message || "wrong")
     }
 

@@ -24,7 +24,7 @@ export default function MainNav() {
 
   return (
     <main className={styles.main}>
-
+      {/* {user.fullName} */}
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src='logo-mail-box.png' width={"30px"} />
@@ -42,7 +42,7 @@ export default function MainNav() {
 
 
           <div className={styles.circle}>
-          <img src={`${user.avatar}`} alt='' />
+            <img src={`${user.avatar}`} alt='' />
           </div>
         </div>
       </div>

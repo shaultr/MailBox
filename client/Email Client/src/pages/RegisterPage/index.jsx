@@ -13,9 +13,9 @@ export default function RegisterPage() {
     const df = new FormData(e.target)
     const detailsUser = Object.fromEntries(df);
     const fullName = `${detailsUser.firstName} ${detailsUser.lastName}`;
-    console.log(detailsUser);
     try {
-      const res = await axiosReq({ method: 'POST', url: `/users/register`,body: {...detailsUser, fullName: fullName} });
+      console.log("kkk");
+      const res = await axiosReq({ method: 'POST', url: `/users/register`, body: { ...detailsUser, fullName: fullName } });
       if (res) navigate('/login')
     }
     catch (error) {
@@ -25,36 +25,33 @@ export default function RegisterPage() {
 
   return (
     <div className={styles.container}>
+      
       <div className={styles.form}>
-        <h1>your first MailBox is here</h1>
+        <div className={styles.header}>
+          <h3>
+            Mailbox - communicate full-world
+          </h3>
+        </div>
+        <p>Enter your email adress and we'll send you a link <br /> to reset your password</p>
         <form className={styles.inputs} onSubmit={handelSubmit}>
 
           <div className={styles.star}>
-            <p>First Name</p>
+            <input type='text' className={styles.input} placeholder='Email Adress' name={"email"} id={'email'} />
             <p style={{ color: 'red' }}>*</p>
           </div>
-          <input type='text' className={styles.input} name={"firstName"} id={'fname'} />
           <div className={styles.star}>
-            <p>Last Name</p>
+            <input type='text' className={styles.input} placeholder='First Name' name={"firstName"} id={'fname'} />
             <p style={{ color: 'red' }}>*</p>
           </div>
-          <input type='text' className={styles.input} name={"lastName"} id={'lname'} />
           <div className={styles.star}>
-            <p>Our Email Adress</p>
+            <input type='text' className={styles.input} placeholder='Lest Name' name={"lestName"} id={'lname'} />
             <p style={{ color: 'red' }}>*</p>
           </div>
-          <input type='email' className={styles.input} name={"email"} id={'email'} />
           <div className={styles.star}>
-            <p>Password</p>
+            <input type='text' className={styles.input} placeholder='Passwors' name={"passwors"} id={'passwors'} />
             <p style={{ color: 'red' }}>*</p>
           </div>
-          <input type='password' className={styles.input} name={"password"} id={'password'} />
-          <div className={styles.star}>
-            <p>Confirm Password</p>
-            <p style={{ color: 'red' }}>*</p>
-          </div>
-          <input type='password' className={styles.input} name={"confirmPassword"} id={'cpassword'} />
-          <Btn text={"Register"} />
+          <input className={styles.submit} type='submit' value='Register' />
         </form>
 
         <div className={styles.end}>
@@ -75,6 +72,7 @@ export default function RegisterPage() {
           </div>
         </div>
       </div>
+      <img className={styles.img} src ='plane.png' ></img>
     </div>
   );
 }

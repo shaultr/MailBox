@@ -28,7 +28,7 @@ router.get('/:flag', auth, async (req, res) => {
     try {
         let result = await chatService.getChats(req.body.user._id, req.params.flag)
         res.send(result)
-    }
+    } 
     catch (err) {
         res.status(400).send(err.message)
     }

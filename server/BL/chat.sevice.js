@@ -13,6 +13,7 @@ let funcs = {
 
 async function getNumNotRead(userId) {
     let chatsNotread = await userController.readOne({ _id: userId })
+    // console.log(chatsNotread);
     let arrIsRecivedAndNotRead = chatsNotread.chats.filter(chat => chat.isRecieved && !chat.notread);
 
     return {

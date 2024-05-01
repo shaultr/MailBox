@@ -3,39 +3,12 @@ import { TiStarFullOutline } from "react-icons/ti";
 import styles from './style.module.css'
 import { GrMail } from "react-icons/gr";
 import { NavLink } from 'react-router-dom';
+import { shortFormatDate } from '../../functions/dateFunctions';
 
 export default function EmailLi({ emailId, content, members, date }) {
-
-
-  function formatCustomDate(inputDate) {
-    // Calculate the time difference in milliseconds
-    const currentTime = new Date();
-    const timeDifference = currentTime - inputDate;
-
-    // Define the threshold for "last 24 hours" (in milliseconds)
-    const twentyFourHours = 24 * 60 * 60 * 1000;
-    // Format the date based on the time difference
-    let formattedDate;
-    if (timeDifference >= twentyFourHours) {
-        // Not within the last 24 hours
-        formattedDate = inputDate.toLocaleDateString('il-GB', {
-            year: '2-digit',
-            month: '2-digit',
-            day: '2-digit',
-        });
-    } else {
-        // Within the last 24 hours
-        formattedDate = inputDate.toLocaleTimeString('en-GB', {
-            hour: '2-digit',
-            minute: '2-digit',
-        });
-    }
-
-    return formattedDate;
-}
-
+console.log("oooooo: " + emailId);
 const inputDate = new Date(date);
-const formattedResult = formatCustomDate(inputDate);
+const formattedResult = shortFormatDate(inputDate);
 
   const [isFavorite, setIsFavorite] = useState(false);
   const [isread, setNumOfMsg] = useState(0);

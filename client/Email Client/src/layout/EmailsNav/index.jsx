@@ -25,6 +25,7 @@ export default function EmailsNav() {
   const fetchData = async () => {
     try {
       const num = await axiosReq({ method: 'GET', url: '/chat' });
+      console.log(num.result);
       return num?.result?.numOfNewChats;
     } catch (error) {
       console.error(error);
@@ -33,8 +34,8 @@ export default function EmailsNav() {
   }
 
   useEffect(() => {
-    fetchData().then(num => {
-      setNumOfNotRead(num);
+    fetchData().then(n => {
+      setNumOfNotRead(n);
     }).catch(error => {
       console.error(error);
     });
