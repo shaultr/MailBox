@@ -18,7 +18,10 @@ function App() {
   const [user, setUser] = useState({})
 
   const getUserByToken = async () => {
-    if(!localStorage.token) throw 'no token'
+    if(!localStorage.token){
+      navigate('/')
+      return
+    }
     const res = await axiosReq({ method: 'GET', url: `/users` });
     console.log(res);
     setUser(res)
@@ -26,6 +29,7 @@ function App() {
   useEffect(() => {
     getUserByToken()
   }, [])
+  
   return (<>
     <DataContext.Provider value={{ user, setUser }}>
       <Routes>

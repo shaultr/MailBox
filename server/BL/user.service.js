@@ -27,9 +27,10 @@ async function register(data) {
 
 //get inbox emails
 async function getUser(req) {
+    console.log('correct.userId')
     const token = req.headers.authorization;
     const correct = jwt.verify(token, TOKEN_SECRET);
-    const user = await userController.readOne(correct._id);
+    const user = await userController.readOne(correct.userId); 
     return user;
 }
 

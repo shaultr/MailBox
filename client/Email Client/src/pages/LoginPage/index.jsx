@@ -9,7 +9,7 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 
 export default function RegisterPage() {
   const { user, setUser } = useContext(DataContext)
-
+const navigate = useNavigate()
   const handelSubmit = async (e) => {
     e.preventDefault();
     const df = new FormData(e.target)
@@ -48,7 +48,7 @@ export default function RegisterPage() {
             </div>
 
             <div className={styles.star}>
-              <input type='text' className={styles.input} placeholder='Passwors' name={"passwors"} id={'passwors'} />
+              <input type='text' className={styles.input} placeholder='Password' name={"password"} id={'password'} />
               <p style={{ color: 'red' }}>*</p>
             </div>
             <a href='#' className={styles.link}>Forgot password?</a>

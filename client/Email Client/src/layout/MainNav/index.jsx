@@ -24,12 +24,11 @@ export default function MainNav() {
 
   return (
     <main className={styles.main}>
-      {/* {user.fullName} */}
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src='logo-mail-box.png' width={"30px"} />
         </div>
-
+        {/* <h1>{user.fullName}</h1> */}
         <div className={styles.icons}>
 
           {icons.map((item) => (
@@ -39,10 +38,12 @@ export default function MainNav() {
 
         </div>
         <div className={styles.image}>
-
+          <h3>{user.fullName}</h3>
 
           <div className={styles.circle}>
-            <img src={`${user.avatar}`} alt='' />
+            {
+             <img src={`${user.avatar}`} alt='' />
+            }
           </div>
         </div>
       </div>

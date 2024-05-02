@@ -12,6 +12,7 @@ export const axiosReq = async ({ method = 'POST', body, url }) => {
         Authorization: localStorage.token || "",
       },
     })
+    console.log('llllll');
     return result
   } catch (error) {
     console.log('api error \n', { error })

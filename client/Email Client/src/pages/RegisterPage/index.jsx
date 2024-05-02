@@ -16,7 +16,7 @@ export default function RegisterPage() {
     try {
       console.log("kkk");
       const res = await axiosReq({ method: 'POST', url: `/users/register`, body: { ...detailsUser, fullName: fullName } });
-      if (res) navigate('/login')
+      if (res) navigate('/')
     }
     catch (error) {
       console.log(error);
@@ -48,7 +48,7 @@ export default function RegisterPage() {
             <p style={{ color: 'red' }}>*</p>
           </div>
           <div className={styles.star}>
-            <input type='text' className={styles.input} placeholder='Passwors' name={"passwors"} id={'passwors'} />
+            <input type='text' className={styles.input} placeholder='Password' name={"password"} id={'password'} />
             <p style={{ color: 'red' }}>*</p>
           </div>
           <input className={styles.submit} type='submit' value='Register' />

@@ -14,8 +14,7 @@ async function auth(req, res, next) {
         if (!token) throw "no token" 
         const correct = jwt.verify(token, TOKEN_SECRET);
         if (!correct) throw "no correct token" 
-        const user = await userController.readOne(correct._id);
-        console.log(user);
+        const user = await userController.readOne(correct.userId);
         if (!user) throw "no user";
         req.body.user = user
         next()

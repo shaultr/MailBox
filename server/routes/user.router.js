@@ -5,6 +5,7 @@ const { auth } = require('../middelewares/auth')
 
 //get user by koken
 router.get('/', auth, async (req, res) => {
+    console.log('object')
     try {
         let result = await userService.getUser(req)
         res.send(result)

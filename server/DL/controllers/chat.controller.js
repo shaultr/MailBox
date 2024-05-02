@@ -15,7 +15,7 @@ async function update(id, data) {
     return await chatModel.findByIdAndUpdate(id, data, { new: true })
 }
 async function del(id) {
-    return await update(id, { isActive: false })
+    return await update(id, { isActive: false }) 
 }
 
 module.exports = { create, read, readOne, update, del }
